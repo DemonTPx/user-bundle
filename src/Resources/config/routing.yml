@@ -1,0 +1,24 @@
+demontpx_user_index:
+  path:     /
+  defaults: { _controller: DemonTPxUserBundle:User:index }
+  methods:  [GET]
+
+demontpx_user_new:
+  path:     /new
+  defaults: { _controller: DemonTPxUserBundle:User:edit, new: true }
+  methods:  [GET, POST, PUT]
+
+demontpx_user_show:
+  path:     /show/{username}
+  defaults: { _controller: DemonTPxUserBundle:User:show }
+  methods:  [GET]
+
+demontpx_user_edit:
+  path:     /edit/{username}
+  defaults: { _controller: DemonTPxUserBundle:User:edit }
+  methods:  [GET, POST, PUT]
+
+demontpx_user_delete:
+  path:     /delete/{username}
+  defaults: { _controller: DemonTPxUserBundle:User:delete }
+  methods:  [POST, DELETE]

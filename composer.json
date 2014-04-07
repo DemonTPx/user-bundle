@@ -1,0 +1,26 @@
+{
+    "name": "demontpx/user-bundle",
+    "description": "Couples the FOSUserBundle to my apps",
+    "type": "symfony-bundle",
+    "keywords": ["user"],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": { "DemonTPx\\UserBundle\\": "src/" }
+    },
+    "require": {
+        "php": ">=5.5",
+        "symfony/framework-bundle": "~2.4",
+        "symfony/form": "~2.4",
+        "doctrine/orm": "~2.4",
+        "friendsofsymfony/user-bundle": "2.0.*@dev",
+        "demontpx/util-bundle": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7",
+        "twig/twig": "~1.5",
+        "doctrine/doctrine-bundle": "*"
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}

@@ -1,0 +1,7 @@
+parameters:
+
+services:
+  demontpx_user.form.type.user:
+    class: DemonTPx\UserBundle\Form\UserType
+    tags:
+      - { name: form.type, alias: 'user' }

@@ -1,0 +1,5 @@
+bin/
+vendor/
+.idea/*.iws
+.idea/workspace.xml
+.idea/tasks.xml
