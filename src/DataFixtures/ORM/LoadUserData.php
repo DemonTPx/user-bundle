@@ -50,8 +50,8 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
     private function persistUser($username, array $roleList = array())
     {
         $user = new User();
-        $user->setUsername($user);
-        $user->setPassword($user);
+        $user->setUsername($username);
+        $user->setPassword($username);
         $user->setRoles($roleList);
 
         $this->setReference('user-' . $username, $user);
