@@ -1,6 +1,6 @@
 <?php
 
-namespace DemonTPx\UserBundle\DependencyInjection;
+namespace Demontpx\UserBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

@@ -30,7 +30,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new DemonTPx\UserBundle\DemonTPxUserBundle(),
+        new Demontpx\UserBundle\DemontpxUserBundle(),
     );
 }
 ```

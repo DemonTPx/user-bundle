@@ -1,16 +1,16 @@
 <?php
 
-namespace DemonTPx\UserBundle;
+namespace Demontpx\UserBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class DemonTPxUserBundle
+ * Class DemontpxUserBundle
  *
- * @package   DemonTPx\UserBundle
+ * @package   Demontpx\UserBundle
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
-class DemonTPxUserBundle extends Bundle
+class DemontpxUserBundle extends Bundle
 {
 }

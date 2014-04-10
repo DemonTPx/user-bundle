@@ -1,13 +1,13 @@
 <?php
 
-namespace DemonTPx\UserBundle\Entity;
+namespace Demontpx\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class UserTrait
  *
- * @package   DemonTPx\UserBundle\Entity
+ * @package   Demontpx\UserBundle\Entity
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
@@ -16,7 +16,7 @@ trait UserTrait
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="DemonTPx\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Demontpx\UserBundle\Entity\User")
      */
     private $user;
 

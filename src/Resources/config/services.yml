@@ -5,7 +5,7 @@ parameters:
 
 services:
   demontpx_user.form.type.user:
-    class: DemonTPx\UserBundle\Form\UserType
+    class: Demontpx\UserBundle\Form\UserType
     arguments:
       - %demontpx_user.roles%
     tags:

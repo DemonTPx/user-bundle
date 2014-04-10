@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5aab9b7165e6209dceefc8233a17393f",
+    "hash": "4c5adb595fe874faf4e47439e0a508b8",
     "packages": [
         {
             "name": "demontpx/util-bundle",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DemonTPx/util-bundle.git",
-                "reference": "2ff8c54799f081003c813f393ee52c3c11224dd1"
+                "reference": "ec9c3b3b2968ad831b9eff50f7f3e3f954f27143"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DemonTPx/util-bundle/zipball/2ff8c54799f081003c813f393ee52c3c11224dd1",
-                "reference": "2ff8c54799f081003c813f393ee52c3c11224dd1",
+                "url": "https://api.github.com/repos/DemonTPx/util-bundle/zipball/ec9c3b3b2968ad831b9eff50f7f3e3f954f27143",
+                "reference": "ec9c3b3b2968ad831b9eff50f7f3e3f954f27143",
                 "shasum": ""
             },
             "require": {
@@ -31,7 +31,7 @@
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
-                    "DemonTPx\\UtilBundle\\": "src/"
+                    "Demontpx\\UtilBundle\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -42,7 +42,7 @@
             "keywords": [
                 "utility"
             ],
-            "time": "2014-04-07 21:33:01"
+            "time": "2014-04-10 22:27:39"
         },
         {
             "name": "doctrine/annotations",

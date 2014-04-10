@@ -1,8 +1,8 @@
 <?php
 
-namespace DemonTPx\UserBundle\DataFixtures\ORM;
+namespace Demontpx\UserBundle\DataFixtures\ORM;
 
-use DemonTPx\UserBundle\Entity\User;
+use Demontpx\UserBundle\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Class LoadUserData
  *
- * @package   DemonTPx\UserBundle\DataFixtures\ORM
+ * @package   Demontpx\UserBundle\DataFixtures\ORM
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */

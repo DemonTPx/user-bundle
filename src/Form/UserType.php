@@ -1,6 +1,6 @@
 <?php
 
-namespace DemonTPx\UserBundle\Form;
+namespace Demontpx\UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -8,7 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 /**
  * Class UserType
  *
- * @package   DemonTPx\UserBundle\Form
+ * @package   Demontpx\UserBundle\Form
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */

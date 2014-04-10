@@ -1,9 +1,9 @@
 <?php
 
-namespace DemonTPx\UserBundle\Controller;
+namespace Demontpx\UserBundle\Controller;
 
-use DemonTPx\UserBundle\Entity\User;
-use DemonTPx\UtilBundle\Controller\BaseController;
+use Demontpx\UserBundle\Entity\User;
+use Demontpx\UtilBundle\Controller\BaseController;
 use FOS\UserBundle\Doctrine\UserManager;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * Class UserController
  *
- * @package   DemonTPx\UserBundle\Controller
+ * @package   Demontpx\UserBundle\Controller
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
@@ -27,9 +27,9 @@ class UserController extends BaseController
     public function indexAction()
     {
         $doctrine = $this->getDoctrine();
-        $repository = $doctrine->getRepository('DemonTPxUserBundle:User');
+        $repository = $doctrine->getRepository('DemontpxUserBundle:User');
 
-        return $this->render('DemonTPxUserBundle:User:index.html.twig', array(
+        return $this->render('DemontpxUserBundle:User:index.html.twig', array(
             'userList'=> $repository->findAll(),
         ));
     }
@@ -46,7 +46,7 @@ class UserController extends BaseController
     {
         $user = $this->findUserByUsername($username);
 
-        return $this->render('DemonTPxUserBundle:User:show.html.twig', array(
+        return $this->render('DemontpxUserBundle:User:show.html.twig', array(
             'user' => $user,
         ));
     }
@@ -79,7 +79,7 @@ class UserController extends BaseController
             return $this->redirectToFormReferrer($form, $this->generateUrl('demontpx_user_index'));
         }
 
-        return $this->render('DemonTPxUserBundle:User:edit.html.twig', array(
+        return $this->render('DemontpxUserBundle:User:edit.html.twig', array(
             'form' => $form->createView(),
             'user' => $user,
             'new' => false,

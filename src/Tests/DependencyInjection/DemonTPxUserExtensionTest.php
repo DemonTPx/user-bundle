@@ -1,20 +1,20 @@
 <?php
 
-namespace DemonTPx\UserBundle\Tests\DependencyInjection;
+namespace Demontpx\UserBundle\Tests\DependencyInjection;
 
-use DemonTPx\UserBundle\DependencyInjection\DemonTPxUserExtension;
+use Demontpx\UserBundle\DependencyInjection\DemontpxUserExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * Class DemonTPxUserExtensionTest
+ * Class DemontpxUserExtensionTest
  *
- * @package   DemonTPx\UserBundle\Tests\DependencyInjection
+ * @package   Demontpx\UserBundle\Tests\DependencyInjection
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
-class DemonTPxUserExtensionTest extends \PHPUnit_Framework_TestCase
+class DemontpxUserExtensionTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var DemonTPxUserExtension */
+    /** @var DemontpxUserExtension */
     private $extension;
 
     /** @var string */
@@ -96,11 +96,11 @@ class DemonTPxUserExtensionTest extends \PHPUnit_Framework_TestCase
     /**
      * Returns the Configuration to test
      *
-     * @return DemonTPxUserExtension
+     * @return DemontpxUserExtension
      */
     protected function getExtension()
     {
-        return new DemonTPxUserExtension();
+        return new DemontpxUserExtension();
     }
 }
 

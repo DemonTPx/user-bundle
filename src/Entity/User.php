@@ -1,6 +1,6 @@
 <?php
 
-namespace DemonTPx\UserBundle\Entity;
+namespace Demontpx\UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Class User
  *
- * @package   DemonTPx\UserBundle\Entity
+ * @package   Demontpx\UserBundle\Entity
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  *
