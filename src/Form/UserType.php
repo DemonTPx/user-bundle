@@ -14,6 +14,17 @@ use Symfony\Component\Form\FormBuilderInterface;
  */
 class UserType extends AbstractType
 {
+    /** @var array */
+    private $roleList;
+
+    /**
+     * @param array $roleList
+     */
+    public function __construct(array $roleList)
+    {
+        $this->roleList = $roleList;
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -27,6 +38,14 @@ class UserType extends AbstractType
             'second_options' => array('label' => 'Confirm password'),
             'required' => false,
         ));
+
+        if (count($this->roleList) != 0) {
+            $builder->add('roles', null, array(
+                'choices' => $this->roleList,
+                'multiple' => true,
+                'required' => false,
+            ));
+        }
     }
 
     /**

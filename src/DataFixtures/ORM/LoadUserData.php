@@ -6,6 +6,8 @@ use DemonTPx\UserBundle\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class LoadUserData
@@ -14,10 +16,13 @@ use Doctrine\Common\Persistence\ObjectManager;
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
-class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
+class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
     /** @var ObjectManager */
     private $manager;
+
+    /** @var ContainerInterface */
+    private $container;
 
     /**
      * {@inheritDoc}
@@ -26,19 +31,13 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
     {
         $this->manager = $manager;
 
-        $this->persistUser('user');
-        $this->persistUser('test');
-        $this->persistUser('admin', array('ROLE_ADMIN'));
+        $userList = $this->container->getParameter('demontpx_user.fixtures');
+
+        foreach ($userList as $username => $data) {
+            $this->persistUser($username, $data['roles']);
+        }
 
         $manager->flush();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    function getOrder()
-    {
-        return 10;
     }
 
     /**
@@ -61,5 +60,21 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
         $this->manager->persist($user);
 
         return $user;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    function getOrder()
+    {
+        return 10;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
     }
 }

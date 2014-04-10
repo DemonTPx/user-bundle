@@ -1,7 +1,12 @@
 parameters:
+  demontpx_user.roles:
+    ROLE_USER: User
+  demontpx_user.fixtures: []
 
 services:
   demontpx_user.form.type.user:
     class: DemonTPx\UserBundle\Form\UserType
+    arguments:
+      - %demontpx_user.roles%
     tags:
       - { name: form.type, alias: 'user' }

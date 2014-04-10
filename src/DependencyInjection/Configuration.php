@@ -20,9 +20,23 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('demontpx_user');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+                ->arrayNode('roles')
+                    ->treatNullLike(array())
+                    ->prototype('variable')->end()
+                ->end()
+                ->arrayNode('fixtures')
+                    ->treatNullLike(array())
+                    ->prototype('array')
+                        ->children()
+                            ->arrayNode('roles')
+                                ->prototype('scalar')->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end();
 
         return $treeBuilder;
     }

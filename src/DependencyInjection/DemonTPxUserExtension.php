@@ -24,5 +24,10 @@ class DemonTPxUserExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        $root = 'demontpx_user.';
+
+        $container->setParameter($root . 'roles', $config['roles']);
+        $container->setParameter($root . 'fixtures', $config['fixtures']);
     }
 }
