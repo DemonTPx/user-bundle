@@ -40,7 +40,7 @@ class UserType extends AbstractType
         ));
 
         if (count($this->roleList) != 0) {
-            $builder->add('roles', null, array(
+            $builder->add('roles', 'choice', array(
                 'choices' => $this->roleList,
                 'multiple' => true,
                 'required' => false,

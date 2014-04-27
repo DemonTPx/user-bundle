@@ -22,7 +22,8 @@
         "doctrine/doctrine-fixtures-bundle": "~2.0"
     },
     "suggest": {
-        "doctrine/doctrine-fixtures-bundle": "For functional testing with configured users"
+        "doctrine/doctrine-fixtures-bundle": "For functional testing with configured users",
+        "pinano/select2-bundle": "Improves forms"
     },
     "config": {
         "bin-dir": "bin"
