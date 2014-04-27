@@ -3,7 +3,7 @@
 {% block content %}
     <div class="container">
         <p>
-            <a href="{{ path('demontpx_user_new') }}" class="btn btn-default">New user</a>
+            <a href="{{ path('demontpx_user_manage_new') }}" class="btn btn-default">New user</a>
         </p>
 
         <table class="table table-striped table-condensed">
@@ -18,15 +18,15 @@
             {% for user in userList %}
                 <tr>
                     <td>
-                        <a href="{{ path('demontpx_user_show', {username: user}) }}">{{ user }}</a>
+                        <a href="{{ path('demontpx_user_manage_show', {username: user}) }}">{{ user }}</a>
                     </td>
                     <td>
                         <a href="mailto:{{ user.email }}">{{ user.email }}</a>
                     </td>
                     <td>
                         <div class="pull-right">
-                            <a href="{{ path('demontpx_user_edit', {username: user}) }}"><i class="fa fa-pencil"></i></a>
-                            <a href="{{ path('demontpx_user_delete', {username: user}) }}"><i class="fa fa-trash-o"></i></a>
+                            <a href="{{ path('demontpx_user_manage_edit', {username: user}) }}"><i class="fa fa-pencil"></i></a>
+                            <a href="{{ path('demontpx_user_manage_delete', {username: user}) }}"><i class="fa fa-trash-o"></i></a>
                         </div>
                     </td>
                 </tr>

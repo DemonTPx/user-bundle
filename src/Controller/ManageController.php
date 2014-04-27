@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class UserController
+ * Class ManageController
  *
  * @package   Demontpx\UserBundle\Controller
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
-class UserController extends BaseController
+class ManageController extends BaseController
 {
     /**
      * List all users
@@ -29,7 +29,7 @@ class UserController extends BaseController
         $doctrine = $this->getDoctrine();
         $repository = $doctrine->getRepository('DemontpxUserBundle:User');
 
-        return $this->render('DemontpxUserBundle:User:index.html.twig', array(
+        return $this->render('DemontpxUserBundle:Manage:index.html.twig', array(
             'userList'=> $repository->findAll(),
         ));
     }
@@ -46,7 +46,7 @@ class UserController extends BaseController
     {
         $user = $this->findUserByUsername($username);
 
-        return $this->render('DemontpxUserBundle:User:show.html.twig', array(
+        return $this->render('DemontpxUserBundle:Manage:show.html.twig', array(
             'user' => $user,
         ));
     }
@@ -76,13 +76,42 @@ class UserController extends BaseController
             $manager = $this->getUserManager();
             $manager->updateUser($user);
 
-            return $this->redirectToFormReferrer($form, $this->generateUrl('demontpx_user_index'));
+            return $this->redirectToFormReferrer($form, $this->generateUrl('demontpx_user_manage_index'));
         }
 
-        return $this->render('DemontpxUserBundle:User:edit.html.twig', array(
+        return $this->render('DemontpxUserBundle:Manage:edit.html.twig', array(
             'form' => $form->createView(),
             'user' => $user,
             'new' => false,
+        ));
+    }
+
+    /**
+     * Delete user
+     *
+     * @param Request $request
+     * @param string  $username
+     *
+     * @return RedirectResponse|Response
+     */
+    public function deleteAction(Request $request, $username = null)
+    {
+        $user = $this->findUserByUsername($username);
+
+        $form = $this->createForm('user_delete', $user);
+        $this->addReferrerToForm($form);
+
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $manager = $this->getUserManager();
+            $manager->deleteUser($user);
+
+            return $this->redirectToFormReferrer($form, $this->generateUrl('demontpx_user_manage_index'));
+        }
+
+        return $this->render('DemontpxUserBundle:Manage:delete.html.twig', array(
+            'form' => $form->createView(),
+            'user' => $user,
         ));
     }
 

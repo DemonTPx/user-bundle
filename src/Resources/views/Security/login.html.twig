@@ -1,0 +1,32 @@
+{% extends "::base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block head_style %}
+    {{ parent() }}
+    {% stylesheets '@DemontpxUserBundle/Resources/public/css/login.css' %}
+    <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content %}
+<div class="col-md-4 col-md-offset-4" id="login">
+    {% if error %}
+        <div class="bg-danger">{{ error|trans }}</div>
+    {% endif %}
+
+    <form action="{{ path("demontpx_user_security_check") }}" method="post">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+        <input type="text" id="username" class="form-control input-lg" name="_username" placeholder="Username" value="{{ last_username }}" required="required" autofocus/>
+        <input type="password" id="password" class="form-control input-lg" name="_password" placeholder="Password" required="required" />
+
+        <label class="checkbox" for="remember_me">
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            Remember me
+        </label>
+
+        <input type="submit" id="_submit" class="btn btn-primary btn-block btn-lg" name="_submit" value="Sign in" />
+    </form>
+</div>
+{% endblock %}

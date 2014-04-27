@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        You are about to delete the user {{ user.username }}. Are you sure?
+        {{ form_start(form) }}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-link" onclick="history.back()">Close</button>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+
+    {% javascripts '@DemontpxUserBundle/Resources/public/js/user_edit.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
