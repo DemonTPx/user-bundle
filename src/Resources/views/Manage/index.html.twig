@@ -24,9 +24,10 @@
                         <a href="mailto:{{ user.email }}">{{ user.email }}</a>
                     </td>
                     <td>
-                        <div class="pull-right">
-                            <a href="{{ path('demontpx_user_manage_edit', {username: user}) }}"><i class="fa fa-pencil"></i></a>
-                            <a href="{{ path('demontpx_user_manage_delete', {username: user}) }}"><i class="fa fa-trash-o"></i></a>
+                        <div class="pull-right btn-group btn-group-xs">
+                            <a href="{{ path('demontpx_user_manage_edit', {username: user}) }}" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                            <a href="{{ path('demontpx_user_manage_delete', {username: user}) }}" class="btn btn-default"><i class="fa fa-trash-o"></i></a>
+
                         </div>
                     </td>
                 </tr>
