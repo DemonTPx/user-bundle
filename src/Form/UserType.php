@@ -8,7 +8,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 /**
  * Class UserType
  *
- * @package   Demontpx\UserBundle\Form
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
@@ -30,20 +29,38 @@ class UserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('username');
-        $builder->add('email');
-        $builder->add('plainPassword', 'repeated', array(
+        $builder->add('username', null, [
+            'label' => 'demontpx_user.username',
+            'translation_domain' => 'FOSUserBundle',
+        ]);
+        $builder->add('fullName', null, [
+            'label' => 'demontpx_user.full_name',
+            'translation_domain' => 'FOSUserBundle',
+        ]);
+        $builder->add('email', null, [
+            'label' => 'demontpx_user.email',
+            'translation_domain' => 'FOSUserBundle',
+        ]);
+        $builder->add('plainPassword', 'repeated', [
             'type' => 'password',
-            'first_options' => array('label' => 'New password'),
-            'second_options' => array('label' => 'Confirm password'),
+            'first_options' => [
+                'label' => 'demontpx_user.form.new_password',
+                'translation_domain' => 'FOSUserBundle',
+            ],
+            'second_options' => [
+                'label' => 'demontpx_user.form.confirm_password',
+                'translation_domain' => 'FOSUserBundle',
+            ],
             'required' => false,
-        ));
+        ]);
 
         if (count($this->roleList) != 0) {
             $builder->add('roles', 'choice', array(
                 'choices' => $this->roleList,
                 'multiple' => true,
                 'required' => false,
+                'label' => 'demontpx_user.form.roles',
+                'translation_domain' => 'FOSUserBundle',
             ));
         }
     }

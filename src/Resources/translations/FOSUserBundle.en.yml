@@ -1,0 +1,23 @@
+demontpx_user:
+  username: Username
+  full_name: Full name
+  email: Email
+
+  security:
+    password: Password
+    remember_me: Remember me
+    sign_in: Sign in
+
+  manage:
+    save: Save
+    cancel: Cancel
+    new_user: New user
+    edit_user: Edit user
+    delete_confirm: You are about to delete the user %username%. Are you sure?
+    delete_yes: Yes, delete
+    delete_no: No, cancel
+
+  form:
+    new_password: New password
+    confirm_password: Confirm password
+    roles: Roles

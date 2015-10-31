@@ -1,0 +1,23 @@
+demontpx_user:
+  username: Gebruikersnaam
+  full_name: Volledige naam
+  email: Email
+
+  security:
+    password: Wachtwoord
+    remember_me: Onthoud mij
+    sign_in: Aanmelden
+
+  manage:
+    save: Opslaan
+    cancel: Annuleren
+    new_user: Nieuwe gebruiker
+    edit_user: Gebruiker wijzigen
+    delete_confirm: Je staat op het punt om de gebruiker %username% te verwijderen. Weet je het zeker?
+    delete_yes: Ja, verwijderen
+    delete_no: Nee, annlueren
+
+  form:
+    new_password: Nieuw wachtwoord
+    confirm_password: Bevestig wachtwoord
+    roles: Rollen

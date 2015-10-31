@@ -7,7 +7,6 @@ use Symfony\Component\Form\AbstractType;
 /**
  * Class UserDeleteType
  *
- * @package   Demontpx\UserBundle\Form
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */

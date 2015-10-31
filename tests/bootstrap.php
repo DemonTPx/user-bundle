@@ -1,8 +1,8 @@
 <?php
 
 $autoloadLocations = array(
-    __DIR__ . '/../../vendor/autoload.php',
-    __DIR__ . '/../../../../../vendor/autoload.php',
+    __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/../../../../vendor/autoload.php',
 );
 
 foreach ($autoloadLocations as $autoloadFile) {

@@ -13,15 +13,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * Class ManageController
  *
- * @package   Demontpx\UserBundle\Controller
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
 class ManageController extends BaseController
 {
     /**
-     * List all users
-     *
      * @return Response
      */
     public function indexAction()
@@ -35,8 +32,6 @@ class ManageController extends BaseController
     }
 
     /**
-     * Show user
-     *
      * @param string $username
      *
      * @throws NotFoundHttpException
@@ -52,8 +47,6 @@ class ManageController extends BaseController
     }
 
     /**
-     * New or edit user
-     *
      * @param Request $request
      * @param string  $username
      * @param bool    $new
@@ -87,8 +80,6 @@ class ManageController extends BaseController
     }
 
     /**
-     * Delete user
-     *
      * @param Request $request
      * @param string  $username
      *
@@ -116,8 +107,6 @@ class ManageController extends BaseController
     }
 
     /**
-     * Find user by username
-     *
      * @param string $username
      *
      * @return User

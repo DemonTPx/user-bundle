@@ -18,15 +18,15 @@
     <form action="{{ path("demontpx_user_security_check") }}" method="post">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-        <input type="text" id="username" class="form-control input-lg" name="_username" placeholder="Username" value="{{ last_username }}" required="required" autofocus/>
-        <input type="password" id="password" class="form-control input-lg" name="_password" placeholder="Password" required="required" />
+        <input type="text" id="username" class="form-control input-lg" name="_username" placeholder="{{ 'demontpx_user.username'|trans }}" value="{{ last_username }}" required="required" autofocus/>
+        <input type="password" id="password" class="form-control input-lg" name="_password" placeholder="{{ 'demontpx_user.security.password'|trans }}" required="required" />
 
         <label class="checkbox" for="remember_me">
             <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-            Remember me
+            {{ 'demontpx_user.security.remember_me'|trans }}
         </label>
 
-        <input type="submit" id="_submit" class="btn btn-primary btn-block btn-lg" name="_submit" value="Sign in" />
+        <input type="submit" id="_submit" class="btn btn-primary btn-block btn-lg" name="_submit" value="{{ 'demontpx_user.security.sign_in'|trans }}" />
     </form>
 </div>
 {% endblock %}

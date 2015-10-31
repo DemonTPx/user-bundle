@@ -7,6 +7,9 @@
     "autoload": {
         "psr-4": { "Demontpx\\UserBundle\\": "src/" }
     },
+    "autoload-dev": {
+        "psr-4": { "Demontpx\\UserBundle\\": "tests/" }
+    },
     "require": {
         "php": ">=5.5",
         "symfony/framework-bundle": "~2.4",

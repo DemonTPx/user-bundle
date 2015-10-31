@@ -1,14 +1,12 @@
 <?php
 
-namespace Demontpx\UserBundle\Tests\DependencyInjection;
+namespace Demontpx\UserBundle\DependencyInjection;
 
-use Demontpx\UserBundle\DependencyInjection\DemontpxUserExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * Class DemontpxUserExtensionTest
  *
- * @package   Demontpx\UserBundle\Tests\DependencyInjection
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
@@ -20,9 +18,6 @@ class DemontpxUserExtensionTest extends \PHPUnit_Framework_TestCase
     /** @var string */
     private $root;
 
-    /**
-     * {@inheritDoc}
-     */
     public function setUp()
     {
         parent::setUp();
@@ -31,9 +26,6 @@ class DemontpxUserExtensionTest extends \PHPUnit_Framework_TestCase
         $this->root = 'demontpx_user.';
     }
 
-    /**
-     * Test default values
-     */
     public function testDefaultValues()
     {
         $container = new ContainerBuilder();
@@ -46,9 +38,6 @@ class DemontpxUserExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(array(), $container->getParameter($this->root . 'fixtures'));
     }
 
-    /**
-     * Test roles
-     */
     public function testRoles()
     {
         $config = array(array(
@@ -65,9 +54,6 @@ class DemontpxUserExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($config[0]['roles'], $container->getParameter($this->root . 'roles'));
     }
 
-    /**
-     * Test fixtures
-     */
     public function testFixtures()
     {
         $config = array(array(
@@ -94,8 +80,6 @@ class DemontpxUserExtensionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Returns the Configuration to test
-     *
      * @return DemontpxUserExtension
      */
     protected function getExtension()

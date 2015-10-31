@@ -1,13 +1,10 @@
 <?php
 
-namespace Demontpx\UserBundle\Tests\Entity;
-
-use Demontpx\UserBundle\Entity\User;
+namespace Demontpx\UserBundle\Entity;
 
 /**
  * Class UserTraitTest
  *
- * @package   Demontpx\UserBundle\Tests\Entity
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */

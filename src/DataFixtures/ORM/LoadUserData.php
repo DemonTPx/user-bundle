@@ -12,7 +12,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Class LoadUserData
  *
- * @package   Demontpx\UserBundle\DataFixtures\ORM
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
@@ -24,9 +23,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
     /** @var ContainerInterface */
     private $container;
 
-    /**
-     * {@inheritDoc}
-     */
     function load(ObjectManager $manager)
     {
         $this->manager = $manager;
@@ -62,17 +58,11 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         return $user;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     function getOrder()
     {
         return 10;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;
