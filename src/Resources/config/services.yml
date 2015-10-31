@@ -10,8 +10,3 @@ services:
       - %demontpx_user.roles%
     tags:
       - { name: form.type, alias: 'user' }
-
-  demontpx_user.form.type.user_delete:
-    class: Demontpx\UserBundle\Form\UserDeleteType
-    tags:
-      - { name: form.type, alias: 'user_delete' }

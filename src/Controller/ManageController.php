@@ -89,7 +89,7 @@ class ManageController extends BaseController
     {
         $user = $this->findUserByUsername($username);
 
-        $form = $this->createForm('user_delete', $user);
+        $form = $this->createForm('delete', $user);
         $this->addReferrerToForm($form);
 
         $form->handleRequest($request);
