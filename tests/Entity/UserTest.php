@@ -18,5 +18,16 @@ class UserTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(UserInterface::class, $user);
     }
+
+    public function testUserFullname()
+    {
+        $user = new User();
+
+        $user->setUsername('bert');
+        $this->assertSame('bert', $user->getFullName());
+
+        $user->setFullName('Bert Hekman');
+        $this->assertSame('Bert Hekman', $user->getFullName());
+    }
 }
 

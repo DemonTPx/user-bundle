@@ -26,26 +26,42 @@ class DemontpxUserExtensionTest extends \PHPUnit_Framework_TestCase
         $this->root = 'demontpx_user.';
     }
 
+    public function testCorrectRoot()
+    {
+        $container = new ContainerBuilder();
+        $this->extension->load([], $container);
+
+        foreach (array_keys($container->getDefinitions()) as $id) {
+            $this->assertStringStartsWith($this->root, $id);
+        }
+        foreach (array_keys($container->getAliases()) as $id) {
+            $this->assertStringStartsWith($this->root, $id);
+        }
+        foreach (array_keys($container->getParameterBag()->all()) as $id) {
+            $this->assertStringStartsWith($this->root, $id);
+        }
+    }
+
     public function testDefaultValues()
     {
         $container = new ContainerBuilder();
-        $this->extension->load(array(), $container);
+        $this->extension->load([], $container);
 
         $this->assertTrue($container->hasParameter($this->root . 'roles'));
-        $this->assertEquals(array(), $container->getParameter($this->root . 'roles'));
+        $this->assertEquals([], $container->getParameter($this->root . 'roles'));
 
         $this->assertTrue($container->hasParameter($this->root . 'fixtures'));
-        $this->assertEquals(array(), $container->getParameter($this->root . 'fixtures'));
+        $this->assertEquals([], $container->getParameter($this->root . 'fixtures'));
     }
 
     public function testRoles()
     {
-        $config = array(array(
-            'roles' => array(
+        $config = [[
+            'roles' => [
                 'ROLE_ADMIN' => 'Administrator',
                 'ROLE_GROUP_MANAGER' => 'Group manager',
-            )
-        ));
+            ]
+        ]];
 
         $container = new ContainerBuilder();
         $this->extension->load($config, $container);
@@ -56,13 +72,13 @@ class DemontpxUserExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function testFixtures()
     {
-        $config = array(array(
-            'fixtures' => array(
+        $config = [[
+            'fixtures' => [
                 'user' => null,
-                'admin' => array('roles' => array('ROLE_ADMIN')),
-                'super' => array('roles' => array('ROLE_ADMIN', 'ROLE_SUPER')),
-            )
-        ));
+                'admin' => ['roles' => ['ROLE_ADMIN']],
+                'super' => ['roles' => ['ROLE_ADMIN', 'ROLE_SUPER']],
+            ]
+        ]];
 
         $container = new ContainerBuilder();
         $this->extension->load($config, $container);
@@ -72,11 +88,11 @@ class DemontpxUserExtensionTest extends \PHPUnit_Framework_TestCase
         $fixtures = $container->getParameter($this->root . 'fixtures');
 
         $this->assertTrue(is_array($fixtures));
-        $this->assertCount(3 , $fixtures);
+        $this->assertCount(3, $fixtures);
         $this->assertArrayHasKey('user', $fixtures);
 
-        $this->assertEquals(array(), $fixtures['user']['roles']);
-        $this->assertEquals(array('ROLE_ADMIN', 'ROLE_SUPER'), $fixtures['super']['roles']);
+        $this->assertEquals([], $fixtures['user']['roles']);
+        $this->assertEquals(['ROLE_ADMIN', 'ROLE_SUPER'], $fixtures['super']['roles']);
     }
 
     /**

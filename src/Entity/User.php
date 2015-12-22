@@ -28,7 +28,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $fullName;
 
@@ -37,7 +37,7 @@ class User extends BaseUser
      */
     public function getFullName()
     {
-        return $this->fullName;
+        return $this->fullName ?: $this->username;
     }
 
     /**
