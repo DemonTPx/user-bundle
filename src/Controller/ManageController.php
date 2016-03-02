@@ -3,7 +3,9 @@
 namespace Demontpx\UserBundle\Controller;
 
 use Demontpx\UserBundle\Entity\User;
+use Demontpx\UserBundle\Form\UserType;
 use Demontpx\UtilBundle\Controller\BaseController;
+use Demontpx\UtilBundle\Form\DeleteType;
 use FOS\UserBundle\Doctrine\UserManager;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -61,7 +63,7 @@ class ManageController extends BaseController
             $user = $this->findUserByUsername($username);
         }
 
-        $form = $this->createForm('user', $user);
+        $form = $this->createForm(UserType::class, $user);
         $this->addReferrerToForm($form);
 
         $form->handleRequest($request);
@@ -89,7 +91,7 @@ class ManageController extends BaseController
     {
         $user = $this->findUserByUsername($username);
 
-        $form = $this->createForm('delete', $user);
+        $form = $this->createForm(DeleteType::class, $user);
         $this->addReferrerToForm($form);
 
         $form->handleRequest($request);

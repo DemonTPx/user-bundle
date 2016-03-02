@@ -3,6 +3,8 @@
 namespace Demontpx\UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
@@ -24,9 +26,6 @@ class UserType extends AbstractType
         $this->roleList = $roleList;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('username', null, [
@@ -41,7 +40,7 @@ class UserType extends AbstractType
             'label' => 'demontpx_user.email',
             'translation_domain' => 'FOSUserBundle',
         ]);
-        $builder->add('plainPassword', 'repeated', [
+        $builder->add('plainPassword', RepeatedType::class, [
             'type' => 'password',
             'first_options' => [
                 'label' => 'demontpx_user.form.new_password',
@@ -55,7 +54,7 @@ class UserType extends AbstractType
         ]);
 
         if (count($this->roleList) != 0) {
-            $builder->add('roles', 'choice', array(
+            $builder->add('roles', ChoiceType::class, array(
                 'choices' => $this->roleList,
                 'multiple' => true,
                 'required' => false,
@@ -63,13 +62,5 @@ class UserType extends AbstractType
                 'translation_domain' => 'FOSUserBundle',
             ));
         }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getName()
-    {
-        return 'user';
     }
 }
