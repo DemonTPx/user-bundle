@@ -56,7 +56,7 @@ class UserType extends AbstractType
 
         if (count($this->roleList) != 0) {
             $builder->add('roles', ChoiceType::class, array(
-                'choices' => $this->roleList,
+                'choices' => array_flip($this->roleList),
                 'multiple' => true,
                 'required' => false,
                 'label' => 'demontpx_user.form.roles',
