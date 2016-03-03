@@ -4,6 +4,7 @@ namespace Demontpx\UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -41,7 +42,7 @@ class UserType extends AbstractType
             'translation_domain' => 'FOSUserBundle',
         ]);
         $builder->add('plainPassword', RepeatedType::class, [
-            'type' => 'password',
+            'type' => PasswordType::class,
             'first_options' => [
                 'label' => 'demontpx_user.form.new_password',
                 'translation_domain' => 'FOSUserBundle',
