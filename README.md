@@ -1,6 +1,6 @@
 # DemonTPx user bundle
 
-This couples the FOSUserBundle to my Symfony2 apps
+This couples the FOSUserBundle to my Symfony apps
 
 ## Installation
 

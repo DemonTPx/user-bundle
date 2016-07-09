@@ -1,6 +1,6 @@
 {
     "name": "demontpx/user-bundle",
-    "description": "Couples the FOSUserBundle to my apps",
+    "description": "Couples the FOSUserBundle to my Symfony apps",
     "type": "symfony-bundle",
     "keywords": ["user"],
     "license": "MIT",
