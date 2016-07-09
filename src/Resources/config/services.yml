@@ -7,6 +7,6 @@ services:
   demontpx_user.form.type.user:
     class: Demontpx\UserBundle\Form\UserType
     arguments:
-      - %demontpx_user.roles%
+      - "%demontpx_user.roles%"
     tags:
       - { name: form.type, alias: 'user' }

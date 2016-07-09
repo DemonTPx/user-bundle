@@ -25,6 +25,6 @@ class UserTraitTest extends \PHPUnit_Framework_TestCase
      */
     private function createUserMock()
     {
-        return $this->getMock(User::class);
+        return $this->createMock(User::class);
     }
 }
