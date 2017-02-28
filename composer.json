@@ -11,10 +11,10 @@
         "psr-4": { "Demontpx\\UserBundle\\": "tests/" }
     },
     "require": {
-        "php": "^5.5|^7.0",
-        "symfony/framework-bundle": "^2.8|^3.0",
-        "symfony/form": "^2.8|^3.0",
-        "doctrine/orm": "^2.4",
+        "php": "^7.0",
+        "symfony/framework-bundle": "^3.2",
+        "symfony/form": "^3.2",
+        "doctrine/orm": "^2.5",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "demontpx/util-bundle": "^0.1.6"
     },

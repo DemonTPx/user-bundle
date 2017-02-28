@@ -13,9 +13,6 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  */
 class Configuration implements ConfigurationInterface
 {
-    /**
-     * {@inheritDoc}
-     */
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
@@ -40,6 +37,15 @@ class Configuration implements ConfigurationInterface
                                 ->prototype('scalar')->end()
                             ->end()
                         ->end()
+                    ->end()
+                ->end()
+                ->arrayNode('gravatar')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('default_size')->defaultValue(80)->end()
+                        ->enumNode('default_rating')->defaultValue('g')->values(['g', 'pg', 'r', 'x'])->end()
+                        ->scalarNode('default_default')->defaultValue('mm')->end()
+                        ->booleanNode('default_force_default')->defaultFalse()->end()
                     ->end()
                 ->end()
             ->end();

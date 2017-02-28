@@ -19,18 +19,12 @@ trait UserTrait
      */
     private $user;
 
-    /**
-     * @return User
-     */
-    public function getUser()
+    public function getUser(): User
     {
         return $this->user;
     }
 
-    /**
-     * @param User $user
-     */
-    public function setUser($user)
+    public function setUser(User $user)
     {
         $this->user = $user;
     }

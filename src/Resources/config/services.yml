@@ -10,3 +10,18 @@ services:
       - "%demontpx_user.roles%"
     tags:
       - { name: form.type, alias: 'user' }
+
+  demontpx_user.gravatar:
+    class: Demontpx\UserBundle\Service\Gravatar
+    arguments:
+      - "%demontpx_user.gravatar.default_size%"
+      - "%demontpx_user.gravatar.default_rating%"
+      - "%demontpx_user.gravatar.default_default%"
+      - "%demontpx_user.gravatar.default_force_default%"
+
+  demontpx_user.twig.gravatar:
+    class: Demontpx\UserBundle\Twig\GravatarExtension
+    arguments:
+      - "@demontpx_user.gravatar"
+    tags:
+      - { name: twig.extension }

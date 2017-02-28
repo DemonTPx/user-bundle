@@ -32,18 +32,12 @@ class User extends BaseUser
      */
     private $fullName;
 
-    /**
-     * @return string
-     */
-    public function getFullName()
+    public function getFullName(): string
     {
         return $this->fullName ?: $this->username;
     }
 
-    /**
-     * @param string $fullName
-     */
-    public function setFullName($fullName)
+    public function setFullName(string $fullName)
     {
         $this->fullName = $fullName;
     }

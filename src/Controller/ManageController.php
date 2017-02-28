@@ -29,7 +29,7 @@ class ManageController extends BaseController
         $repository = $doctrine->getRepository('DemontpxUserBundle:User');
 
         return $this->render('DemontpxUserBundle:Manage:index.html.twig', array(
-            'userList'=> $repository->findAll(),
+            'userList' => $repository->findAll(),
         ));
     }
 
