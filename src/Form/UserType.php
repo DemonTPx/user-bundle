@@ -7,6 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Class UserType
@@ -19,9 +20,6 @@ class UserType extends AbstractType
     /** @var array */
     private $roleList;
 
-    /**
-     * @param array $roleList
-     */
     public function __construct(array $roleList)
     {
         $this->roleList = $roleList;
@@ -31,25 +29,20 @@ class UserType extends AbstractType
     {
         $builder->add('username', null, [
             'label' => 'demontpx_user.username',
-            'translation_domain' => 'FOSUserBundle',
         ]);
         $builder->add('fullName', null, [
             'label' => 'demontpx_user.full_name',
-            'translation_domain' => 'FOSUserBundle',
         ]);
         $builder->add('email', null, [
             'label' => 'demontpx_user.email',
-            'translation_domain' => 'FOSUserBundle',
         ]);
         $builder->add('plainPassword', RepeatedType::class, [
             'type' => PasswordType::class,
             'first_options' => [
                 'label' => 'demontpx_user.form.new_password',
-                'translation_domain' => 'FOSUserBundle',
             ],
             'second_options' => [
                 'label' => 'demontpx_user.form.confirm_password',
-                'translation_domain' => 'FOSUserBundle',
             ],
             'required' => false,
         ]);
@@ -60,8 +53,14 @@ class UserType extends AbstractType
                 'multiple' => true,
                 'required' => false,
                 'label' => 'demontpx_user.form.roles',
-                'translation_domain' => 'FOSUserBundle',
             ));
         }
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'translation_domain' => 'FOSUserBundle',
+        ]);
     }
 }

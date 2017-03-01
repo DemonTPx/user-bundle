@@ -11,18 +11,19 @@
         "psr-4": { "Demontpx\\UserBundle\\": "tests/" }
     },
     "require": {
-        "php": "^7.0",
+        "php": "^7.1",
         "symfony/framework-bundle": "^3.2",
         "symfony/form": "^3.2",
         "doctrine/orm": "^2.5",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "demontpx/util-bundle": "^0.1.6"
+        "demontpx/util-bundle": "dev-master as 0.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.4",
-        "twig/twig": "^1.5",
-        "doctrine/doctrine-bundle": "^1.2",
-        "doctrine/doctrine-fixtures-bundle": "^2.0"
+        "phpunit/phpunit": "^6.0",
+        "symfony/yaml": "^3.2",
+        "twig/twig": "^1.32",
+        "doctrine/doctrine-bundle": "^1.6",
+        "doctrine/doctrine-fixtures-bundle": "^2.3"
     },
     "suggest": {
         "doctrine/doctrine-fixtures-bundle": "For functional testing with configured users",

@@ -7,10 +7,8 @@ use Demontpx\UserBundle\Form\UserType;
 use Demontpx\UtilBundle\Controller\BaseController;
 use Demontpx\UtilBundle\Form\DeleteType;
 use FOS\UserBundle\Doctrine\UserManager;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class ManageController
@@ -20,10 +18,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 class ManageController extends BaseController
 {
-    /**
-     * @return Response
-     */
-    public function indexAction()
+    public function indexAction(): Response
     {
         $doctrine = $this->getDoctrine();
         $repository = $doctrine->getRepository('DemontpxUserBundle:User');
@@ -33,13 +28,7 @@ class ManageController extends BaseController
         ));
     }
 
-    /**
-     * @param string $username
-     *
-     * @throws NotFoundHttpException
-     * @return Response
-     */
-    public function showAction($username)
+    public function showAction(string $username): Response
     {
         $user = $this->findUserByUsername($username);
 
@@ -48,14 +37,7 @@ class ManageController extends BaseController
         ));
     }
 
-    /**
-     * @param Request $request
-     * @param string  $username
-     * @param bool    $new
-     *
-     * @return RedirectResponse|Response
-     */
-    public function editAction(Request $request, $username = null, $new = false)
+    public function editAction(Request $request, string $username = null, bool $new = false): Response
     {
         if ($new) {
             $user = new User();
@@ -81,13 +63,7 @@ class ManageController extends BaseController
         ));
     }
 
-    /**
-     * @param Request $request
-     * @param string  $username
-     *
-     * @return RedirectResponse|Response
-     */
-    public function deleteAction(Request $request, $username = null)
+    public function deleteAction(Request $request, string $username = null): Response
     {
         $user = $this->findUserByUsername($username);
 
@@ -108,13 +84,7 @@ class ManageController extends BaseController
         ));
     }
 
-    /**
-     * @param string $username
-     *
-     * @return User
-     * @throws NotFoundHttpException
-     */
-    private function findUserByUsername($username)
+    private function findUserByUsername(string $username): User
     {
         $manager = $this->getUserManager();
         $user = $manager->findUserByUsername($username);
@@ -126,10 +96,7 @@ class ManageController extends BaseController
         return $user;
     }
 
-    /**
-     * @return UserManager
-     */
-    private function getUserManager()
+    private function getUserManager(): UserManager
     {
         return $this->get('fos_user.user_manager');
     }

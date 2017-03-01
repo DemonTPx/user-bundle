@@ -2,6 +2,7 @@
 
 namespace Demontpx\UserBundle\DependencyInjection;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
@@ -10,7 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
-class DemontpxUserExtensionTest extends \PHPUnit_Framework_TestCase
+class DemontpxUserExtensionTest extends TestCase
 {
     /** @var DemontpxUserExtension */
     private $extension;
@@ -60,7 +61,7 @@ class DemontpxUserExtensionTest extends \PHPUnit_Framework_TestCase
             'roles' => [
                 'ROLE_ADMIN' => 'Administrator',
                 'ROLE_GROUP_MANAGER' => 'Group manager',
-            ]
+            ],
         ]];
 
         $container = new ContainerBuilder();
@@ -77,7 +78,7 @@ class DemontpxUserExtensionTest extends \PHPUnit_Framework_TestCase
                 'user' => null,
                 'admin' => ['roles' => ['ROLE_ADMIN']],
                 'super' => ['roles' => ['ROLE_ADMIN', 'ROLE_SUPER']],
-            ]
+            ],
         ]];
 
         $container = new ContainerBuilder();
@@ -95,10 +96,7 @@ class DemontpxUserExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(['ROLE_ADMIN', 'ROLE_SUPER'], $fixtures['super']['roles']);
     }
 
-    /**
-     * @return DemontpxUserExtension
-     */
-    protected function getExtension()
+    protected function getExtension(): DemontpxUserExtension
     {
         return new DemontpxUserExtension();
     }

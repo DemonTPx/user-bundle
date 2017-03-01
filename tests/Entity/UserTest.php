@@ -3,6 +3,7 @@
 namespace Demontpx\UserBundle\Entity;
 
 use FOS\UserBundle\Model\UserInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class UserTest
@@ -10,7 +11,7 @@ use FOS\UserBundle\Model\UserInterface;
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
-class UserTest extends \PHPUnit_Framework_TestCase 
+class UserTest extends TestCase
 {
     public function testUserInstanceOfUserInterface()
     {

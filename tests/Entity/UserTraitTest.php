@@ -2,13 +2,15 @@
 
 namespace Demontpx\UserBundle\Entity;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Class UserTraitTest
  *
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
-class UserTraitTest extends \PHPUnit_Framework_TestCase
+class UserTraitTest extends TestCase
 {
     public function test()
     {

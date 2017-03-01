@@ -3,6 +3,11 @@ parameters:
     ROLE_USER: User
   demontpx_user.fixtures: []
 
+  demontpx_user.gravatar.default_size: 80
+  demontpx_user.gravatar.default_rating: g
+  demontpx_user.gravatar.default_default: mm
+  demontpx_user.gravatar.default_force_default: false
+
 services:
   demontpx_user.form.type.user:
     class: Demontpx\UserBundle\Form\UserType
