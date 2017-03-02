@@ -16,7 +16,7 @@
         "symfony/form": "^3.2",
         "doctrine/orm": "^2.5",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "demontpx/util-bundle": "dev-master as 0.2"
+        "demontpx/util-bundle": "^0.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.0",
