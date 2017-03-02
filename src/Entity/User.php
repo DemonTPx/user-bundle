@@ -30,7 +30,7 @@ class User extends BaseUser
      *
      * @ORM\Column(type="string", nullable=true)
      */
-    private $fullName;
+    private $fullName = '';
 
     public function getFullName(): string
     {
