@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "12aedb240d01043767ceb9cc10c7dcd3",
+    "content-hash": "a73da02b487dae7f976acde7b4a1fc4d",
     "packages": [
         {
             "name": "demontpx/util-bundle",
