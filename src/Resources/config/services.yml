@@ -14,7 +14,7 @@ services:
     arguments:
       - "%demontpx_user.roles%"
     tags:
-      - { name: form.type, alias: 'user' }
+      - { name: form.type }
 
   demontpx_user.gravatar:
     class: Demontpx\UserBundle\Service\Gravatar

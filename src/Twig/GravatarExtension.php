@@ -24,16 +24,16 @@ class GravatarExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('gravatar', [$this->gravatar, 'getUrl'], ['is_safe' => ['html']]),
-            new \Twig_SimpleFunction('user_gravatar', [$this, 'getUserGravatarUrl'], ['is_safe' => ['html']]),
+            new \Twig_Function('gravatar', [$this->gravatar, 'getUrl'], ['is_safe' => ['html']]),
+            new \Twig_Function('user_gravatar', [$this, 'getUserGravatarUrl'], ['is_safe' => ['html']]),
         ];
     }
 
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('gravatar', [$this->gravatar, 'getUrl'], ['is_safe' => ['html']]),
-            new \Twig_SimpleFilter('user_gravatar', [$this, 'getUserGravatarUrl'], ['is_safe' => ['html']]),
+            new \Twig_Function('gravatar', [$this->gravatar, 'getUrl'], ['is_safe' => ['html']]),
+            new \Twig_Function('user_gravatar', [$this, 'getUserGravatarUrl'], ['is_safe' => ['html']]),
         ];
     }
 
