@@ -59,3 +59,9 @@ Users will get the same password as the user name, and you will be able to use t
         firewalls:
             main: # Replace this with your firewall name
                 http_basic: ~
+
+## Additional javascript and stylesheets
+
+A SCSS file is located at `assets/user-bundle.scss` which could be imported.
+
+Some elements have the `select2` class which could be enhanced by enabling [select2](https://select2.github.io/) on them.

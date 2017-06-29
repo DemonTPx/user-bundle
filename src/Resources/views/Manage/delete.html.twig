@@ -2,19 +2,17 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
+{% block title 'demontpx_user.delete'|trans ~ ': ' ~ user.username) %}
+
 {% block content %}
-    <div class="container">
+    <h2>{{ block('title') }}</h2>
+
+    {{ form_start(form) }}
         <p>
             {{ 'demontpx_user.manage.delete_confirm'|trans({ '%username%': user.username }) }}
         </p>
-        {{ form_start(form) }}
+        {{ form_rest(form) }}
         <button type="submit" class="btn btn-danger">{{ 'demontpx_user.manage.delete_yes'|trans }}</button>
         <button type="button" class="btn btn-link" onclick="history.back()">{{ 'demontpx_user.manage.delete_no'|trans }}</button>
-        {{ form_rest(form) }}
-        {{ form_end(form) }}
-    </div>
-
-    {% javascripts '@DemontpxUserBundle/Resources/public/js/user_edit.js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    {{ form_end(form) }}
 {% endblock %}

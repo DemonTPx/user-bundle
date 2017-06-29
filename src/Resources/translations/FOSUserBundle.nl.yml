@@ -1,4 +1,10 @@
 demontpx_user:
+  users: Gebruikers
+
+  new: Nieuwe gebruiker
+  edit: Gebruiker aanpassen
+  delete: Gebruiker verwijderen
+
   username: Gebruikersnaam
   full_name: Volledige naam
   email: Email

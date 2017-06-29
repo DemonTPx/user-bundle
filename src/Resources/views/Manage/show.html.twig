@@ -2,7 +2,11 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
+{% block title user.username %}
+
 {% block content %}
+    <h2>{{ block('title') }}</h2>
+
     <p>
         <a href="{{ path('demontpx_user_manage_edit', {username: user}) }}" class="btn btn-default">{{ 'demontpx_user.manage.edit_user'|trans }}</a>
     </p>

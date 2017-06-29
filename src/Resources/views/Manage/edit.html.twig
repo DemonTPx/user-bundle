@@ -2,15 +2,22 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
+{% block title (new ? 'demontpx_user.new'|trans : 'demontpx_user.edit'|trans ~ ': ' ~ user.username) %}
+
 {% block content %}
+    <h2>{{ block('title') }}</h2>
+
     {{ form_start(form) }}
+    {{ form_row(form.username) }}
+    {{ form_row(form.fullName) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.plainPassword) }}
+    {% if form.roles is defined %}
+        {{ form_row(form.roles, { attr: { class: 'select2' } }) }}
+    {% endif %}
     {{ form_rest(form) }}
 
     <button type="submit" class="btn btn-primary">{{ 'demontpx_user.manage.save'|trans }}</button>
     <button type="button" class="btn btn-link" onclick="history.back()">{{ 'demontpx_user.manage.cancel'|trans }}</button>
     {{ form_end(form) }}
-
-    {% javascripts '@DemontpxUserBundle/Resources/public/js/user_edit.js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
 {% endblock %}

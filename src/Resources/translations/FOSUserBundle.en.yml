@@ -1,4 +1,10 @@
 demontpx_user:
+  users: Users
+
+  new: New user
+  edit: Edit user
+  delete: Delete user
+
   username: Username
   full_name: Full name
   email: Email
