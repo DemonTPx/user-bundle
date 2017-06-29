@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a73da02b487dae7f976acde7b4a1fc4d",
+    "content-hash": "4df003216060fe544b9df9874a3a8eb5",
     "packages": [
         {
             "name": "demontpx/util-bundle",
-            "version": "0.2.1",
+            "version": "0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DemonTPx/util-bundle.git",
-                "reference": "f51154af9a97821a73179d63e9c1aeb91cfa077f"
+                "reference": "462e86fdad0c8ed52bf1458a58b3d55910c99a91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DemonTPx/util-bundle/zipball/f51154af9a97821a73179d63e9c1aeb91cfa077f",
-                "reference": "f51154af9a97821a73179d63e9c1aeb91cfa077f",
+                "url": "https://api.github.com/repos/DemonTPx/util-bundle/zipball/462e86fdad0c8ed52bf1458a58b3d55910c99a91",
+                "reference": "462e86fdad0c8ed52bf1458a58b3d55910c99a91",
                 "shasum": ""
             },
             "require": {
@@ -27,10 +27,10 @@
                 "symfony/framework-bundle": "^3.2"
             },
             "require-dev": {
-                "cocur/slugify": "^2.4",
+                "cocur/slugify": "^2.5",
                 "phpunit/phpunit": "^6.0",
                 "symfony/yaml": "^3.2",
-                "twig/twig": "^1.32"
+                "twig/twig": "^2.4"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -46,7 +46,7 @@
             "keywords": [
                 "utility"
             ],
-            "time": "2017-05-06T16:47:59+00:00"
+            "time": "2017-06-29T17:48:35+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -650,16 +650,16 @@
         },
         {
             "name": "friendsofsymfony/user-bundle",
-            "version": "dev-master",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "a1b3867bfe6de79532f08f11d40f2b6be54dfcd5"
+                "reference": "4f92bfbb8742ac8cc195d0b34bf8ecd83b62404a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/a1b3867bfe6de79532f08f11d40f2b6be54dfcd5",
-                "reference": "a1b3867bfe6de79532f08f11d40f2b6be54dfcd5",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/4f92bfbb8742ac8cc195d0b34bf8ecd83b62404a",
+                "reference": "4f92bfbb8742ac8cc195d0b34bf8ecd83b62404a",
                 "shasum": ""
             },
             "require": {
@@ -723,7 +723,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2017-06-22 09:54:32"
+            "time": "2017-05-31T11:50:14+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -4807,9 +4807,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "friendsofsymfony/user-bundle": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
