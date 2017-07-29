@@ -2,13 +2,6 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% block head_style %}
-    {{ parent() }}
-    {% stylesheets '@DemontpxUserBundle/Resources/public/css/login.css' %}
-    <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
-    {% endstylesheets %}
-{% endblock %}
-
 {% block content %}
 <div class="col-md-4 col-md-offset-4" id="login">
     {% if error %}
