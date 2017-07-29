@@ -32,8 +32,8 @@ class GravatarExtension extends \Twig_Extension
     public function getFilters()
     {
         return [
-            new \Twig_Function('gravatar', [$this->gravatar, 'getUrl'], ['is_safe' => ['html']]),
-            new \Twig_Function('user_gravatar', [$this, 'getUserGravatarUrl'], ['is_safe' => ['html']]),
+            new \Twig_Filter('gravatar', [$this->gravatar, 'getUrl'], ['is_safe' => ['html']]),
+            new \Twig_Filter('user_gravatar', [$this, 'getUserGravatarUrl'], ['is_safe' => ['html']]),
         ];
     }
 
