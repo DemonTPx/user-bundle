@@ -20,14 +20,14 @@ class ManageController extends BaseController
         $doctrine = $this->getDoctrine();
         $repository = $doctrine->getRepository('DemontpxUserBundle:User');
 
-        return $this->render('DemontpxUserBundle:manage:index.html.twig', [
+        return $this->render('@DemontpxUser/manage/index.html.twig', [
             'userList' => $repository->findAll(),
         ]);
     }
 
     public function showAction(User $user): Response
     {
-        return $this->render('DemontpxUserBundle:manage:show.html.twig', [
+        return $this->render('@DemontpxUser/manage/show.html.twig', [
             'user' => $user,
         ]);
     }
@@ -50,7 +50,7 @@ class ManageController extends BaseController
             return $this->redirectToFormReferrer($form, $this->generateUrl('demontpx_user_manage_index'));
         }
 
-        return $this->render('DemontpxUserBundle:manage:edit.html.twig', [
+        return $this->render('@DemontpxUser/manage/edit.html.twig', [
             'form' => $form->createView(),
             'user' => $user,
             'new' => ($user->getId() === null),
@@ -70,7 +70,7 @@ class ManageController extends BaseController
             return $this->redirectToFormReferrer($form, $this->generateUrl('demontpx_user_manage_index'));
         }
 
-        return $this->render('DemontpxUserBundle:manage:delete.html.twig', [
+        return $this->render('@DemontpxUser/manage/delete.html.twig', [
             'form' => $form->createView(),
             'user' => $user,
         ]);

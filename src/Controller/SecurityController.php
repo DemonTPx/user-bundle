@@ -14,7 +14,7 @@ class SecurityController extends BaseController
 {
     public function loginAction(Request $request)
     {
-        return $this->render('DemontpxUserBundle:security:login.html.twig', [
+        return $this->render('@DemontpxUser/security/login.html.twig', [
             'last_username' => $this->getLastUsername($request),
             'error' => $this->getLatestError($request),
             'csrf_token' => $this->getCsrfToken(),
