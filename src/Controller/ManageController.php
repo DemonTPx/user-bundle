@@ -43,7 +43,7 @@ class ManageController extends BaseController
         $this->addReferrerToForm($form);
 
         $form->handleRequest($request);
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $manager = $this->getUserManager();
             $manager->updateUser($user);
 
@@ -63,7 +63,7 @@ class ManageController extends BaseController
         $this->addReferrerToForm($form);
 
         $form->handleRequest($request);
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $manager = $this->getUserManager();
             $manager->deleteUser($user);
 
