@@ -8,6 +8,8 @@ demontpx_user:
   username: Username
   full_name: Full name
   email: Email
+  enabled: Enabled
+  disabled: Disabled
 
   security:
     password: Password

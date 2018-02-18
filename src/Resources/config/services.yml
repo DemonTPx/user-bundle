@@ -9,6 +9,38 @@ parameters:
   demontpx_user.gravatar.default_force_default: false
 
 services:
+  demontpx_user.object_manager:
+    class: Doctrine\Common\Persistence\ObjectManager
+
+  demontpx_user.user_provider:
+    class: Demontpx\UserBundle\Service\UserProvider
+    arguments:
+      - "@demontpx_user.user_manager"
+
+  demontpx_user.user_manager:
+    class: Demontpx\UserBundle\Service\UserManager
+    arguments:
+      - "@demontpx_user.object_manager"
+      - "@demontpx_user.repository.user"
+      - "@demontpx_user.password_updater"
+
+  demontpx_user.password_updater:
+    class: Demontpx\UserBundle\Service\PasswordUpdater
+    arguments:
+      - "@security.encoder_factory"
+
+  demontpx_user.repository.user:
+    class: Demontpx\UserBundle\Repository\UserRepository
+    factory: ["@demontpx_user.object_manager", getRepository]
+    arguments: ["DemontpxUserBundle:User"]
+
+  demontpx_user.param_converter.user:
+    class: Demontpx\UserBundle\ParamConverter\UserParamConverter
+    arguments:
+      - "@demontpx_user.user_provider"
+    tags:
+      - { name: request.param_converter, priority: 50 }
+
   demontpx_user.form.type.user:
     class: Demontpx\UserBundle\Form\UserType
     arguments:

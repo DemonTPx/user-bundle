@@ -3,15 +3,15 @@ demontpx_user_manage_index:
   defaults: { _controller: DemontpxUserBundle:Manage:index }
   methods:  [GET]
 
-demontpx_user_manage_new:
-  path:     /new
-  defaults: { _controller: DemontpxUserBundle:Manage:edit, new: true }
-  methods:  [GET, POST, PUT]
-
 demontpx_user_manage_show:
   path:     /show/{username}
   defaults: { _controller: DemontpxUserBundle:Manage:show }
   methods:  [GET]
+
+demontpx_user_manage_new:
+  path:     /new
+  defaults: { _controller: DemontpxUserBundle:Manage:add }
+  methods:  [GET, POST, PUT]
 
 demontpx_user_manage_edit:
   path:     /edit/{username}

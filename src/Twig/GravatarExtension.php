@@ -6,9 +6,6 @@ use Demontpx\UserBundle\Entity\User;
 use Demontpx\UserBundle\Service\Gravatar;
 
 /**
- * Class GravatarExtension
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2017 Bert Hekman
  */
 class GravatarExtension extends \Twig_Extension

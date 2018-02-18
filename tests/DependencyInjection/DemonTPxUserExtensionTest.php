@@ -6,9 +6,6 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * Class DemontpxUserExtensionTest
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
 class DemontpxUserExtensionTest extends TestCase
@@ -33,9 +30,15 @@ class DemontpxUserExtensionTest extends TestCase
         $this->extension->load([], $container);
 
         foreach (array_keys($container->getDefinitions()) as $id) {
+            if ($id === 'service_container') {
+                continue;
+            }
             $this->assertStringStartsWith($this->root, $id);
         }
         foreach (array_keys($container->getAliases()) as $id) {
+            if (strpos($id, '\\') !== -1) {
+                continue;
+            }
             $this->assertStringStartsWith($this->root, $id);
         }
         foreach (array_keys($container->getParameterBag()->all()) as $id) {

@@ -5,9 +5,6 @@ namespace Demontpx\UserBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class UserTrait
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
 trait UserTrait

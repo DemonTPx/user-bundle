@@ -6,9 +6,6 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
- * Class Configuration
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  */
 class Configuration implements ConfigurationInterface
@@ -20,6 +17,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->scalarNode('orm_entity_manager')->defaultValue('doctrine.orm.entity_manager')->end()
                 ->arrayNode('roles')
                     ->info('Defines the roles that can be selected during user management')
                     ->example(['ROLE_USER', 'ROLE_ADMIN'])

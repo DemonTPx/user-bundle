@@ -2,23 +2,18 @@
 
 namespace Demontpx\UserBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
+use Demontpx\UserBundle\Model\AbstractUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class User
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Demontpx\UserBundle\Repository\UserRepository")
  * @ORM\Table
  */
-class User extends BaseUser
+class User extends AbstractUser
 {
     /**
-     * @var int
-     *
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -26,19 +21,42 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @var string
-     *
+     * @ORM\Column(type="string", length=180, unique=true)
+     */
+    protected $username = '';
+
+    /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $fullName;
+    protected $fullName;
 
-    public function getFullName(): string
-    {
-        return $this->fullName ?? $this->username ?? '';
-    }
+    /**
+     * @ORM\Column(type="string", length=180, unique=true)
+     */
+    protected $email = '';
 
-    public function setFullName(string $fullName)
-    {
-        $this->fullName = $fullName;
-    }
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $enabled = true;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $salt;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $password;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $lastLogin;
+
+    /**
+     * @ORM\Column(name="roles", type="array")
+     */
+    protected $roleList = [];
 }

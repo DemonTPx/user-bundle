@@ -8,6 +8,8 @@ demontpx_user:
   username: Gebruikersnaam
   full_name: Volledige naam
   email: Email
+  enabled: Actief
+  disabled: Inactief
 
   security:
     password: Wachtwoord

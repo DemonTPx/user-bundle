@@ -4,8 +4,8 @@ demontpx_user_security_login:
 
 demontpx_user_security_check:
     path:     /login_check
-    defaults: { _controller: FOSUserBundle:Security:check }
+    defaults: { _controller: DemontpxUserBundle:Security:login }
 
 demontpx_user_security_logout:
     path:     /logout
-    defaults: { _controller: FOSUserBundle:Security:logout }
+    defaults: { _controller: DemontpxUserBundle:Security:login }

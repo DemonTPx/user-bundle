@@ -4,16 +4,13 @@ namespace Demontpx\UserBundle\Controller;
 
 use Demontpx\UserBundle\Entity\User;
 use Demontpx\UserBundle\Form\UserType;
+use Demontpx\UserBundle\Service\UserManagerInterface;
 use Demontpx\UtilBundle\Controller\BaseController;
 use Demontpx\UtilBundle\Form\DeleteType;
-use FOS\UserBundle\Doctrine\UserManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class ManageController
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
 class ManageController extends BaseController
@@ -23,28 +20,25 @@ class ManageController extends BaseController
         $doctrine = $this->getDoctrine();
         $repository = $doctrine->getRepository('DemontpxUserBundle:User');
 
-        return $this->render('DemontpxUserBundle:Manage:index.html.twig', array(
+        return $this->render('DemontpxUserBundle:manage:index.html.twig', [
             'userList' => $repository->findAll(),
-        ));
+        ]);
     }
 
-    public function showAction(string $username): Response
+    public function showAction(User $user): Response
     {
-        $user = $this->findUserByUsername($username);
-
-        return $this->render('DemontpxUserBundle:Manage:show.html.twig', array(
+        return $this->render('DemontpxUserBundle:manage:show.html.twig', [
             'user' => $user,
-        ));
+        ]);
     }
 
-    public function editAction(Request $request, string $username = null, bool $new = false): Response
+    public function addAction(Request $request): Response
     {
-        if ($new) {
-            $user = new User();
-        } else {
-            $user = $this->findUserByUsername($username);
-        }
+        return $this->editAction($request, new User());
+    }
 
+    public function editAction(Request $request, User $user): Response
+    {
         $form = $this->createForm(UserType::class, $user);
         $this->addReferrerToForm($form);
 
@@ -56,17 +50,15 @@ class ManageController extends BaseController
             return $this->redirectToFormReferrer($form, $this->generateUrl('demontpx_user_manage_index'));
         }
 
-        return $this->render('DemontpxUserBundle:Manage:edit.html.twig', array(
+        return $this->render('DemontpxUserBundle:manage:edit.html.twig', [
             'form' => $form->createView(),
             'user' => $user,
-            'new' => false,
-        ));
+            'new' => ($user->getId() === null),
+        ]);
     }
 
-    public function deleteAction(Request $request, string $username = null): Response
+    public function deleteAction(Request $request, User $user): Response
     {
-        $user = $this->findUserByUsername($username);
-
         $form = $this->createForm(DeleteType::class, $user);
         $this->addReferrerToForm($form);
 
@@ -78,26 +70,14 @@ class ManageController extends BaseController
             return $this->redirectToFormReferrer($form, $this->generateUrl('demontpx_user_manage_index'));
         }
 
-        return $this->render('DemontpxUserBundle:Manage:delete.html.twig', array(
+        return $this->render('DemontpxUserBundle:manage:delete.html.twig', [
             'form' => $form->createView(),
             'user' => $user,
-        ));
+        ]);
     }
 
-    private function findUserByUsername(string $username): User
+    private function getUserManager(): UserManagerInterface
     {
-        $manager = $this->getUserManager();
-        $user = $manager->findUserByUsername($username);
-
-        if ( ! $user) {
-            throw $this->createNotFoundException('User not found');
-        }
-
-        return $user;
-    }
-
-    private function getUserManager(): UserManager
-    {
-        return $this->get('fos_user.user_manager');
+        return $this->get('demontpx_user.user_manager');
     }
 }

@@ -2,7 +2,9 @@
 
 namespace Demontpx\UserBundle\Form;
 
+use Demontpx\UserBundle\Model\AbstractUser;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -10,9 +12,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class UserType
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
 class UserType extends AbstractType
@@ -48,19 +47,24 @@ class UserType extends AbstractType
         ]);
 
         if (count($this->roleList) != 0) {
-            $builder->add('roles', ChoiceType::class, array(
+            $builder->add('roleList', ChoiceType::class, [
                 'choices' => array_flip($this->roleList),
                 'multiple' => true,
                 'required' => false,
                 'label' => 'demontpx_user.form.roles',
-            ));
+            ]);
         }
+
+        $builder->add('enabled', CheckboxType::class, [
+            'label' => 'demontpx_user.enabled',
+            'required' => false,
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'translation_domain' => 'FOSUserBundle',
+            'data_class' => AbstractUser::class,
         ]);
     }
 }

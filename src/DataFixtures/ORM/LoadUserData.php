@@ -10,9 +10,6 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class LoadUserData
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2014 Bert Hekman
  */
 class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
@@ -36,13 +33,13 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $manager->flush();
     }
 
-    private function persistUser(string $username, array $roleList = array()): User
+    private function persistUser(string $username, array $roleList = []): User
     {
         $user = new User();
         $user->setUsername($username);
         $user->setPlainPassword($username);
         $user->setEmail($username . '@example.local');
-        $user->setRoles($roleList);
+        $user->setRoleList($roleList);
         $user->setEnabled(true);
 
         $this->setReference('user-' . $username, $user);

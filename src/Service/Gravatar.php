@@ -3,9 +3,6 @@
 namespace Demontpx\UserBundle\Service;
 
 /**
- * Class Gravatar
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2017 Bert Hekman
  */
 class Gravatar

@@ -1,7 +1,5 @@
 {% extends '::base.html.twig' %}
 
-{% trans_default_domain 'FOSUserBundle' %}
-
 {% block title (new ? 'demontpx_user.new'|trans : 'demontpx_user.edit'|trans ~ ': ' ~ user.username) %}
 
 {% block content %}
@@ -12,8 +10,8 @@
     {{ form_row(form.fullName) }}
     {{ form_row(form.email) }}
     {{ form_row(form.plainPassword) }}
-    {% if form.roles is defined %}
-        {{ form_row(form.roles, { attr: { class: 'select2' } }) }}
+    {% if form.roleList is defined %}
+        {{ form_row(form.roleList, { attr: { class: 'select2' } }) }}
     {% endif %}
     {{ form_rest(form) }}
 

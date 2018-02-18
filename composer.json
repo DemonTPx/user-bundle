@@ -1,6 +1,6 @@
 {
     "name": "demontpx/user-bundle",
-    "description": "Couples the FOSUserBundle to my Symfony apps",
+    "description": "Provider users and user management to my Symfony apps",
     "type": "symfony-bundle",
     "keywords": ["user"],
     "license": "MIT",
@@ -12,10 +12,13 @@
     },
     "require": {
         "php": "^7.1",
-        "symfony/framework-bundle": "^3.2",
+        "symfony/config": "^3.2",
+        "symfony/dependency-injection": "^3.2",
+        "symfony/http-foundation": "^3.2",
+        "symfony/security": "^3.2",
+        "sensio/framework-extra-bundle": "^5.1",
         "symfony/form": "^3.2",
         "doctrine/orm": "^2.5",
-        "friendsofsymfony/user-bundle": "^2.0",
         "demontpx/util-bundle": "^0.3"
     },
     "require-dev": {
