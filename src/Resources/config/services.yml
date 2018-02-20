@@ -67,3 +67,8 @@ services:
       - "@demontpx_user.gravatar"
     tags:
       - { name: twig.extension }
+
+  demontpx_user.data_fixtures.user:
+    class: Demontpx\UserBundle\DataFixtures\UserFixtures
+    tags:
+      - { name: doctrine.fixture.orm }
