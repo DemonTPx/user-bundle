@@ -26,7 +26,7 @@
         "symfony/yaml": "^4.0",
         "twig/twig": "^2.4",
         "doctrine/doctrine-bundle": "^1.8",
-        "doctrine/doctrine-fixtures-bundle": "^2.4"
+        "doctrine/doctrine-fixtures-bundle": "^3.0"
     },
     "suggest": {
         "doctrine/doctrine-fixtures-bundle": "For functional testing with configured users"

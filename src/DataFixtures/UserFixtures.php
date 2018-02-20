@@ -11,16 +11,22 @@ use Doctrine\Common\Persistence\ObjectManager;
  */
 class UserFixtures extends Fixture
 {
+    /** @var array */
+    private $userList;
+
     /** @var ObjectManager */
     private $manager;
+
+    public function __construct(array $userList)
+    {
+        $this->userList = $userList;
+    }
 
     public function load(ObjectManager $manager)
     {
         $this->manager = $manager;
 
-        $userList = $this->container->getParameter('demontpx_user.fixtures');
-
-        foreach ($userList as $username => $data) {
+        foreach ($this->userList as $username => $data) {
             $this->persistUser($username, $data['roles']);
         }
 
