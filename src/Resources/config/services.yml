@@ -71,6 +71,7 @@ services:
   demontpx_user.data_fixtures.user:
     class: Demontpx\UserBundle\DataFixtures\UserFixtures
     arguments:
+      - "@demontpx_user.user_manager"
       - "%demontpx_user.fixtures%"
     tags:
       - { name: doctrine.fixture.orm }

@@ -3,6 +3,7 @@
 namespace Demontpx\UserBundle\DataFixtures;
 
 use Demontpx\UserBundle\Entity\User;
+use Demontpx\UserBundle\Service\UserManagerInterface;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -11,14 +12,18 @@ use Doctrine\Common\Persistence\ObjectManager;
  */
 class UserFixtures extends Fixture
 {
+    /** @var UserManagerInterface */
+    private $userManager;
+
     /** @var array */
     private $userList;
 
     /** @var ObjectManager */
     private $manager;
 
-    public function __construct(array $userList)
+    public function __construct(UserManagerInterface $userManager, array $userList)
     {
+        $this->userManager = $userManager;
         $this->userList = $userList;
     }
 
@@ -35,7 +40,7 @@ class UserFixtures extends Fixture
 
     private function persistUser(string $username, array $roleList = []): User
     {
-        $user = new User();
+        $user = $this->userManager->createUser();
         $user->setUsername($username);
         $user->setPlainPassword($username);
         $user->setEmail($username . '@example.local');
@@ -44,7 +49,7 @@ class UserFixtures extends Fixture
 
         $this->setReference('user-' . $username, $user);
 
-        $this->manager->persist($user);
+        $this->userManager->updateUser($user);
 
         return $user;
     }
