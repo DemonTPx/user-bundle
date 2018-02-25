@@ -179,6 +179,21 @@ abstract class AbstractUser implements UserInterface, \Serializable
         $this->roleList = $roleList;
     }
 
+    public function addRole(string $role)
+    {
+        if ( ! in_array($role, $this->roleList)) {
+            $this->roleList[] = $role;
+        }
+    }
+
+    public function removeRole(string $role)
+    {
+        $position = array_search($role, $this->roleList, true);
+        if ($position !== false) {
+            unset($this->roleList[$position]);
+        }
+    }
+
     public function eraseCredentials()
     {
         $this->plainPassword = null;

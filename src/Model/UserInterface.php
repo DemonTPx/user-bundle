@@ -37,4 +37,8 @@ interface UserInterface extends BaseUserInterface
      * @param string[] $roleList
      */
     public function setRoleList(array $roleList);
+
+
+    public function addRole(string $role);
+    public function removeRole(string $role);
 }

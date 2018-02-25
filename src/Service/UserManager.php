@@ -3,6 +3,7 @@
 namespace Demontpx\UserBundle\Service;
 
 use Demontpx\UserBundle\Entity\User;
+use Demontpx\UserBundle\Exception\UserNotFoundException;
 use Demontpx\UserBundle\Model\UserInterface;
 use Demontpx\UserBundle\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -45,17 +46,35 @@ class UserManager implements UserManagerInterface
 
     public function findUserBy(array $criteria): UserInterface
     {
-        return $this->repository->findOneBy($criteria);
+        $user = $this->repository->findOneBy($criteria);
+
+        if ( ! $user) {
+            throw new UserNotFoundException(sprintf('User with criteria "%s" not found', json_encode($criteria)));
+        }
+
+        return $user;
     }
 
     public function findUserByUsername(string $username): UserInterface
     {
-        return $this->repository->findOneBy(['username' => $username]);
+        $user = $this->repository->findOneBy(['username' => $username]);
+
+        if ( ! $user) {
+            throw new UserNotFoundException(sprintf('User with username "%s" not found', $username));
+        }
+
+        return $user;
     }
 
     public function findUserByEmail(string $email): UserInterface
     {
-        return $this->repository->findOneBy(['email' => $email]);
+        $user = $this->repository->findOneBy(['email' => $email]);
+
+        if ( ! $user) {
+            throw new UserNotFoundException(sprintf('User with email "%s" not found', $email));
+        }
+
+        return $user;
     }
 
     /**
