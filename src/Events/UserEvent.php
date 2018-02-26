@@ -3,11 +3,12 @@
 namespace Demontpx\UserBundle\Events;
 
 use Demontpx\UserBundle\Model\UserInterface;
+use Symfony\Component\EventDispatcher\Event;
 
 /**
  * @copyright 2018 Bert Hekman
  */
-class UserEvent
+class UserEvent extends Event
 {
     /** @var UserInterface */
     private $user;
