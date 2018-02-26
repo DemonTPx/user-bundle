@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e1dab17ac49b09678e5133e7128e3df2",
+    "content-hash": "2239f403ff5a810589de178872911803",
     "packages": [
         {
             "name": "demontpx/util-bundle",
-            "version": "0.4",
+            "version": "0.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DemonTPx/util-bundle.git",
-                "reference": "de931e53264dcf84ad174ba80c4a1917ec62bcf7"
+                "reference": "39f12986a81740bb1359a4151b80a88518d9b5fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DemonTPx/util-bundle/zipball/de931e53264dcf84ad174ba80c4a1917ec62bcf7",
-                "reference": "de931e53264dcf84ad174ba80c4a1917ec62bcf7",
+                "url": "https://api.github.com/repos/DemonTPx/util-bundle/zipball/39f12986a81740bb1359a4151b80a88518d9b5fc",
+                "reference": "39f12986a81740bb1359a4151b80a88518d9b5fc",
                 "shasum": ""
             },
             "require": {
@@ -29,6 +29,8 @@
             "require-dev": {
                 "cocur/slugify": "^3.1",
                 "phpunit/phpunit": "^6.0",
+                "symfony/browser-kit": "^4.0",
+                "symfony/dom-crawler": "^4.0",
                 "symfony/yaml": "^4.0",
                 "twig/twig": "^2.4"
             },
@@ -46,7 +48,7 @@
             "keywords": [
                 "utility"
             ],
-            "time": "2018-02-18T14:23:25+00:00"
+            "time": "2018-02-24T11:39:35+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -2906,16 +2908,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.7.4",
+            "version": "1.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be"
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
-                "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/dfd6be44111a7c41c2e884a336cc4f461b3b2401",
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401",
                 "shasum": ""
             },
             "require": {
@@ -2965,7 +2967,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-02-11T18:49:29+00:00"
+            "time": "2018-02-19T10:16:54+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3218,16 +3220,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.5.6",
+            "version": "6.5.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3330ef26ade05359d006041316ed0fa9e8e3cefe"
+                "reference": "6bd77b57707c236833d2b57b968e403df060c9d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3330ef26ade05359d006041316ed0fa9e8e3cefe",
-                "reference": "3330ef26ade05359d006041316ed0fa9e8e3cefe",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6bd77b57707c236833d2b57b968e403df060c9d9",
+                "reference": "6bd77b57707c236833d2b57b968e403df060c9d9",
                 "shasum": ""
             },
             "require": {
@@ -3298,7 +3300,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-02-01T05:57:37+00:00"
+            "time": "2018-02-26T07:01:09+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

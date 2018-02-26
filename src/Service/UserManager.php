@@ -3,10 +3,13 @@
 namespace Demontpx\UserBundle\Service;
 
 use Demontpx\UserBundle\Entity\User;
+use Demontpx\UserBundle\Events\UserEvent;
+use Demontpx\UserBundle\Events\UserEvents;
 use Demontpx\UserBundle\Exception\UserNotFoundException;
 use Demontpx\UserBundle\Model\UserInterface;
 use Demontpx\UserBundle\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * @copyright 2018 Bert Hekman
@@ -22,15 +25,20 @@ class UserManager implements UserManagerInterface
     /** @var PasswordUpdaterInterface */
     private $passwordUpdater;
 
+    /** @var EventDispatcherInterface */
+    private $eventDispatcher;
+
     public function __construct(
         ObjectManager $entityManager,
         UserRepository $repository,
-        PasswordUpdaterInterface $passwordUpdater
+        PasswordUpdaterInterface $passwordUpdater,
+        EventDispatcherInterface $eventDispatcher
     )
     {
         $this->objectManager = $entityManager;
         $this->repository = $repository;
         $this->passwordUpdater = $passwordUpdater;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
     public function createUser(): UserInterface
@@ -38,10 +46,32 @@ class UserManager implements UserManagerInterface
         return new User();
     }
 
+    public function updateUser(UserInterface $user)
+    {
+        $new = $user->getId() === null;
+
+        $this->updatePassword($user);
+
+        $this->objectManager->persist($user);
+        $this->objectManager->flush();
+
+        $this->dispatchEvent($new ? UserEvents::CREATED : UserEvents::UPDATED, $user);
+    }
+
+    public function updatePassword(UserInterface $user)
+    {
+        $this->passwordUpdater->hashPassword($user);
+    }
+
     public function deleteUser(UserInterface $user)
     {
+        $id = $user->getId();
+        $username = $user->getUsername();
+
         $this->objectManager->remove($user);
         $this->objectManager->flush();
+
+        $this->dispatchEvent(UserEvents::DELETED, $user, $id, $username);
     }
 
     public function findUserBy(array $criteria): UserInterface
@@ -90,16 +120,11 @@ class UserManager implements UserManagerInterface
         $this->objectManager->refresh($user);
     }
 
-    public function updateUser(UserInterface $user)
+    private function dispatchEvent(string $eventName, UserInterface $user, ?int $id = null, ?string $username = null): UserEvent
     {
-        $this->updatePassword($user);
+        $event = new UserEvent($user, $id ?? $user->getId(), $username ?? $user->getUsername());
+        $this->eventDispatcher->dispatch($eventName, $event);
 
-        $this->objectManager->persist($user);
-        $this->objectManager->flush();
-    }
-
-    public function updatePassword(UserInterface $user)
-    {
-        $this->passwordUpdater->hashPassword($user);
+        return $event;
     }
 }

@@ -1,0 +1,40 @@
+<?php
+
+namespace Demontpx\UserBundle\Events;
+
+use Demontpx\UserBundle\Model\UserInterface;
+
+/**
+ * @copyright 2018 Bert Hekman
+ */
+class UserEvent
+{
+    /** @var UserInterface */
+    private $user;
+    /** @var int */
+    private $id;
+    /** @var string */
+    private $username;
+
+    public function __construct(UserInterface $user, int $id, string $username)
+    {
+        $this->user = $user;
+        $this->id = $id;
+        $this->username = $username;
+    }
+
+    public function getUser(): UserInterface
+    {
+        return $this->user;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+}

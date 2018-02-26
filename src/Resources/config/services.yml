@@ -19,6 +19,7 @@ services:
       - "@demontpx_user.object_manager"
       - "@demontpx_user.repository.user"
       - "@demontpx_user.password_updater"
+      - "@event_dispatcher"
     public: true
 
   demontpx_user.repository.user:
