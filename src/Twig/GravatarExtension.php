@@ -4,11 +4,14 @@ namespace Demontpx\UserBundle\Twig;
 
 use Demontpx\UserBundle\Entity\User;
 use Demontpx\UserBundle\Service\Gravatar;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
+use Twig\TwigFunction;
 
 /**
  * @copyright 2017 Bert Hekman
  */
-class GravatarExtension extends \Twig_Extension
+class GravatarExtension extends AbstractExtension
 {
     /** @var Gravatar */
     private $gravatar;
@@ -21,16 +24,16 @@ class GravatarExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_Function('gravatar', [$this->gravatar, 'getUrl'], ['is_safe' => ['html']]),
-            new \Twig_Function('user_gravatar', [$this, 'getUserGravatarUrl'], ['is_safe' => ['html']]),
+            new TwigFunction('gravatar', [$this->gravatar, 'getUrl'], ['is_safe' => ['html']]),
+            new TwigFunction('user_gravatar', [$this, 'getUserGravatarUrl'], ['is_safe' => ['html']]),
         ];
     }
 
     public function getFilters()
     {
         return [
-            new \Twig_Filter('gravatar', [$this->gravatar, 'getUrl'], ['is_safe' => ['html']]),
-            new \Twig_Filter('user_gravatar', [$this, 'getUserGravatarUrl'], ['is_safe' => ['html']]),
+            new TwigFilter('gravatar', [$this->gravatar, 'getUrl'], ['is_safe' => ['html']]),
+            new TwigFilter('user_gravatar', [$this, 'getUserGravatarUrl'], ['is_safe' => ['html']]),
         ];
     }
 
