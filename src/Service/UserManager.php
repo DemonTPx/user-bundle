@@ -8,7 +8,7 @@ use Demontpx\UserBundle\Events\UserEvents;
 use Demontpx\UserBundle\Exception\UserNotFoundException;
 use Demontpx\UserBundle\Model\UserInterface;
 use Demontpx\UserBundle\Repository\UserRepository;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -16,20 +16,17 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
  */
 class UserManager implements UserManagerInterface
 {
-    /** @var ObjectManager */
+    /** @var EntityManagerInterface */
     private $objectManager;
-
     /** @var UserRepository */
     private $repository;
-
     /** @var PasswordUpdaterInterface */
     private $passwordUpdater;
-
     /** @var EventDispatcherInterface */
     private $eventDispatcher;
 
     public function __construct(
-        ObjectManager $entityManager,
+        EntityManagerInterface $entityManager,
         UserRepository $repository,
         PasswordUpdaterInterface $passwordUpdater,
         EventDispatcherInterface $eventDispatcher

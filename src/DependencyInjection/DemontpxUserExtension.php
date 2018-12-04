@@ -19,7 +19,6 @@ class DemontpxUserExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
-        $loader->load('commands.yml');
 
         $root = 'demontpx_user.';
 
@@ -31,6 +30,6 @@ class DemontpxUserExtension extends Extension
         $container->setParameter($root . 'gravatar.default_default', $config['gravatar']['default_default']);
         $container->setParameter($root . 'gravatar.default_force_default', $config['gravatar']['default_force_default']);
 
-        $container->setAlias($root . 'object_manager', $config['orm_entity_manager']);
+        $container->setAlias($root . 'entity_manager', $config['orm_entity_manager']);
     }
 }

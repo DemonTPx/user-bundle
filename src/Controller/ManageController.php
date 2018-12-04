@@ -4,6 +4,7 @@ namespace Demontpx\UserBundle\Controller;
 
 use Demontpx\UserBundle\Entity\User;
 use Demontpx\UserBundle\Form\UserType;
+use Demontpx\UserBundle\Repository\UserRepository;
 use Demontpx\UserBundle\Service\UserManagerInterface;
 use Demontpx\UtilBundle\Controller\BaseController;
 use Demontpx\UtilBundle\Form\DeleteType;
@@ -15,13 +16,21 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class ManageController extends BaseController
 {
+    /** @var UserRepository */
+    private $repository;
+    /** @var UserManagerInterface */
+    private $manager;
+
+    public function __construct(UserRepository $repository, UserManagerInterface $manager)
+    {
+        $this->repository = $repository;
+        $this->manager = $manager;
+    }
+
     public function indexAction(): Response
     {
-        $doctrine = $this->getDoctrine();
-        $repository = $doctrine->getRepository('DemontpxUserBundle:User');
-
         return $this->render('@DemontpxUser/manage/index.html.twig', [
-            'userList' => $repository->findAll(),
+            'userList' => $this->repository->findAll(),
         ]);
     }
 
@@ -44,8 +53,7 @@ class ManageController extends BaseController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $manager = $this->getUserManager();
-            $manager->updateUser($user);
+            $this->manager->updateUser($user);
 
             return $this->redirectToFormReferrer($form, $this->generateUrl('demontpx_user_manage_index'));
         }
@@ -64,8 +72,7 @@ class ManageController extends BaseController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $manager = $this->getUserManager();
-            $manager->deleteUser($user);
+            $this->manager->deleteUser($user);
 
             return $this->redirectToFormReferrer($form, $this->generateUrl('demontpx_user_manage_index'));
         }
@@ -74,10 +81,5 @@ class ManageController extends BaseController
             'form' => $form->createView(),
             'user' => $user,
         ]);
-    }
-
-    private function getUserManager(): UserManagerInterface
-    {
-        return $this->get('demontpx_user.user_manager');
     }
 }

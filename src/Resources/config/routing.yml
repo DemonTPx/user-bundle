@@ -1,6 +1,6 @@
 demontpx_user_manage:
     prefix:   /user/manage/
-    resource: "@DemontpxUserBundle/Resources/config/routing/manage.yml"
+    resource: '@DemontpxUserBundle/Resources/config/routing/manage.yml'
 
 demontpx_user_security:
-    resource: "@DemontpxUserBundle/Resources/config/routing/security.yml"
+    resource: '@DemontpxUserBundle/Resources/config/routing/security.yml'

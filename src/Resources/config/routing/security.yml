@@ -1,11 +1,11 @@
 demontpx_user_security_login:
     path:     /login
-    defaults: { _controller: DemontpxUserBundle:Security:login }
+    defaults: { _controller: Demontpx\UserBundle\Controller\SecurityController:loginAction }
 
 demontpx_user_security_check:
     path:     /login_check
-    defaults: { _controller: DemontpxUserBundle:Security:login }
+    defaults: { _controller: Demontpx\UserBundle\Controller\SecurityController:checkAction }
 
 demontpx_user_security_logout:
     path:     /logout
-    defaults: { _controller: DemontpxUserBundle:Security:login }
+    defaults: { _controller: Demontpx\UserBundle\Controller\SecurityController:logoutAction }

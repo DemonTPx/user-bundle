@@ -22,13 +22,10 @@ class Gravatar
 
     /** @var int */
     private $defaultSize;
-
     /** @var string */
     private $defaultRating;
-
     /** @var string */
     private $defaultDefault;
-
     /** @var bool */
     private $defaultForceDefault;
 

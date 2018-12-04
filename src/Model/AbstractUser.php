@@ -9,31 +9,22 @@ abstract class AbstractUser implements UserInterface, \Serializable
 {
     /** @var ?mixed */
     protected $id;
-
     /** @var string */
     protected $username = '';
-
     /** @var ?string */
     protected $fullName;
-
     /** @var string */
     protected $email = '';
-
     /** @var bool */
     protected $enabled = true;
-
     /** @var ?string */
     protected $salt;
-
     /** @var string */
     protected $password;
-
     /** @var ?string */
     protected $plainPassword;
-
     /** @var ?\DateTimeInterface */
     protected $lastLogin;
-
     /** @var string[] */
     protected $roleList = [];
 

@@ -1,24 +1,24 @@
 demontpx_user_manage_index:
   path:     /
-  defaults: { _controller: DemontpxUserBundle:Manage:index }
+  defaults: { _controller: Demontpx\UserBundle\Controller\ManageController:indexAction }
   methods:  [GET]
 
 demontpx_user_manage_show:
   path:     /show/{username}
-  defaults: { _controller: DemontpxUserBundle:Manage:show }
+  defaults: { _controller: Demontpx\UserBundle\Controller\ManageController:showAction }
   methods:  [GET]
 
 demontpx_user_manage_new:
   path:     /new
-  defaults: { _controller: DemontpxUserBundle:Manage:add }
+  defaults: { _controller: Demontpx\UserBundle\Controller\ManageController:addAction }
   methods:  [GET, POST, PUT]
 
 demontpx_user_manage_edit:
   path:     /edit/{username}
-  defaults: { _controller: DemontpxUserBundle:Manage:edit }
+  defaults: { _controller: Demontpx\UserBundle\Controller\ManageController:editAction }
   methods:  [GET, POST, PUT]
 
 demontpx_user_manage_delete:
   path:     /delete/{username}
-  defaults: { _controller: DemontpxUserBundle:Manage:delete }
+  defaults: { _controller: Demontpx\UserBundle\Controller\ManageController:deleteAction }
   methods:  [GET, POST, DELETE]

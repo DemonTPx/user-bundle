@@ -1,80 +1,78 @@
 parameters:
-  demontpx_user.roles:
-    ROLE_USER: User
-  demontpx_user.fixtures: []
+    demontpx_user.roles:
+        ROLE_USER: User
+    demontpx_user.fixtures: []
 
-  demontpx_user.gravatar.default_size: 80
-  demontpx_user.gravatar.default_rating: g
-  demontpx_user.gravatar.default_default: mm
-  demontpx_user.gravatar.default_force_default: false
+    demontpx_user.gravatar.default_size: 80
+    demontpx_user.gravatar.default_rating: g
+    demontpx_user.gravatar.default_default: mm
+    demontpx_user.gravatar.default_force_default: false
 
 services:
-  Demontpx\UserBundle\Service\UserManagerInterface: "@demontpx_user.user_manager"
-  Demontpx\UserBundle\Repository\UserRepository: "@demontpx_user.repository.user"
-  Demontpx\UserBundle\Service\Gravatar: "@demontpx_user.gravatar"
+    demontpx_user.user_manager: '@Demontpx\UserBundle\Service\UserManagerInterface'
+    demontpx_user.user_provider: '@Demontpx\UserBundle\Service\UserProvider'
+    demontpx_user.repository.user: '@Demontpx\UserBundle\Repository\UserRepository'
+    demontpx_user.gravatar: '@Demontpx\UserBundle\Service\Gravatar'
 
-  demontpx_user.user_manager:
-    class: Demontpx\UserBundle\Service\UserManager
-    arguments:
-      - "@demontpx_user.object_manager"
-      - "@demontpx_user.repository.user"
-      - "@demontpx_user.password_updater"
-      - "@event_dispatcher"
-    public: true
+    Demontpx\UserBundle\Service\UserManagerInterface: '@Demontpx\UserBundle\Service\UserManager'
 
-  demontpx_user.repository.user:
-    class: Demontpx\UserBundle\Repository\UserRepository
-    factory: ["@demontpx_user.object_manager", getRepository]
-    arguments: ["DemontpxUserBundle:User"]
-    public: true
+    Demontpx\UserBundle\Service\UserManager:
+        arguments:
+            - '@demontpx_user.entity_manager'
+            - '@Demontpx\UserBundle\Repository\UserRepository'
+            - '@Demontpx\UserBundle\Service\PasswordUpdater'
+            - '@Symfony\Component\EventDispatcher\EventDispatcherInterface'
+        public: true
 
-  demontpx_user.object_manager:
-    class: Doctrine\Common\Persistence\ObjectManager
+    Demontpx\UserBundle\Repository\UserRepository:
+        factory: ['@demontpx_user.entity_manager', getRepository]
+        arguments: ['DemontpxUserBundle:User']
+        public: true
 
-  demontpx_user.user_provider:
-    class: Demontpx\UserBundle\Service\UserProvider
-    arguments:
-      - "@demontpx_user.user_manager"
+    Demontpx\UserBundle\Service\UserProvider:
+        arguments:
+            - '@Demontpx\UserBundle\Service\UserManagerInterface'
 
-  demontpx_user.password_updater:
-    class: Demontpx\UserBundle\Service\PasswordUpdater
-    arguments:
-      - "@security.encoder_factory"
+    Demontpx\UserBundle\Service\PasswordUpdater:
+        arguments:
+            - '@Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface'
 
-  demontpx_user.param_converter.user:
-    class: Demontpx\UserBundle\ParamConverter\UserParamConverter
-    arguments:
-      - "@demontpx_user.user_provider"
-    tags:
-      - { name: request.param_converter, priority: 50 }
+    Demontpx\UserBundle\ParamConverter\UserParamConverter:
+        arguments:
+            - '@Demontpx\UserBundle\Service\UserProvider'
+        tags:
+            - { name: request.param_converter, priority: 50 }
 
-  demontpx_user.form.type.user:
-    class: Demontpx\UserBundle\Form\UserType
-    arguments:
-      - "%demontpx_user.roles%"
-    tags:
-      - { name: form.type }
+    Demontpx\UserBundle\Form\UserType:
+        arguments:
+            - '%demontpx_user.roles%'
+        tags: [form.type]
 
-  demontpx_user.gravatar:
-    class: Demontpx\UserBundle\Service\Gravatar
-    arguments:
-      - "%demontpx_user.gravatar.default_size%"
-      - "%demontpx_user.gravatar.default_rating%"
-      - "%demontpx_user.gravatar.default_default%"
-      - "%demontpx_user.gravatar.default_force_default%"
-    public: true
+    Demontpx\UserBundle\Service\Gravatar:
+        arguments:
+            - '%demontpx_user.gravatar.default_size%'
+            - '%demontpx_user.gravatar.default_rating%'
+            - '%demontpx_user.gravatar.default_default%'
+            - '%demontpx_user.gravatar.default_force_default%'
+        public: true
 
-  demontpx_user.twig.gravatar:
-    class: Demontpx\UserBundle\Twig\GravatarExtension
-    arguments:
-      - "@demontpx_user.gravatar"
-    tags:
-      - { name: twig.extension }
+    Demontpx\UserBundle\Twig\GravatarExtension:
+        arguments:
+            - '@Demontpx\UserBundle\Service\Gravatar'
+        tags: [twig.extension]
 
-  demontpx_user.data_fixtures.user:
-    class: Demontpx\UserBundle\DataFixtures\UserFixtures
-    arguments:
-      - "@demontpx_user.user_manager"
-      - "%demontpx_user.fixtures%"
-    tags:
-      - { name: doctrine.fixture.orm }
+    Demontpx\UserBundle\DataFixtures\UserFixtures:
+        arguments:
+            - '@Demontpx\UserBundle\Service\UserManagerInterface'
+            - '%demontpx_user.fixtures%'
+        tags: [doctrine.fixture.orm]
+
+    Demontpx\UserBundle\Command\:
+        resource: '../../Command'
+        autowire: true
+        tags: [console.command]
+
+    Demontpx\UserBundle\Controller\:
+        resource: '../../Controller'
+        autowire: true
+        tags: [controller.service_arguments]

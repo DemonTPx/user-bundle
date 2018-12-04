@@ -14,10 +14,8 @@ class UserFixtures extends Fixture
 {
     /** @var UserManagerInterface */
     private $userManager;
-
     /** @var array */
     private $userList;
-
     /** @var ObjectManager */
     private $manager;
 

@@ -33,6 +33,11 @@ class DemontpxUserExtensionTest extends TestCase
             if ($id === 'service_container') {
                 continue;
             }
+            if (strpos($id, '\\') !== false) {
+                $this->assertStringStartsWith('Demontpx\\UserBundle\\', $id);
+
+                continue;
+            }
             $this->assertStringStartsWith($this->root, $id);
         }
         foreach (array_keys($container->getAliases()) as $id) {

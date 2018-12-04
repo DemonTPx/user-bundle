@@ -2,6 +2,7 @@
 
 namespace Demontpx\UserBundle\DependencyInjection;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -17,22 +18,22 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('orm_entity_manager')->defaultValue('doctrine.orm.entity_manager')->end()
+                ->scalarNode('orm_entity_manager')->defaultValue(EntityManagerInterface::class)->end()
                 ->arrayNode('roles')
                     ->info('Defines the roles that can be selected during user management')
                     ->example(['ROLE_USER', 'ROLE_ADMIN'])
                     ->treatNullLike([])
-                    ->prototype('variable')->end()
+                    ->variablePrototype()->end()
                 ->end()
                 ->arrayNode('fixtures')
                     ->info('Data fixtures which will be created; Users will get the same password as their username')
                     ->treatNullLike([])
                     ->useAttributeAsKey('name')
-                    ->prototype('array')
+                    ->arrayPrototype()
                         ->children()
                             ->arrayNode('roles')
                                 ->example(['ROLE_USER', 'ROLE_ADMIN'])
-                                ->prototype('scalar')->end()
+                                ->scalarPrototype()->end()
                             ->end()
                         ->end()
                     ->end()
