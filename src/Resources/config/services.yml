@@ -37,6 +37,8 @@ services:
         arguments:
             - '@Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface'
 
+    Demontpx\UserBundle\Service\UserChecker:
+
     Demontpx\UserBundle\ParamConverter\UserParamConverter:
         arguments:
             - '@Demontpx\UserBundle\Service\UserProvider'

@@ -2,7 +2,7 @@
 
 namespace Demontpx\UserBundle\Model;
 
-use Symfony\Component\Security\Core\User\AdvancedUserInterface as BaseUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface as BaseUserInterface;
 
 /**
  * @copyright 2018 Bert Hekman
