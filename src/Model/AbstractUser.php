@@ -7,23 +7,23 @@ namespace Demontpx\UserBundle\Model;
  */
 abstract class AbstractUser implements UserInterface, \Serializable
 {
-    /** @var ?mixed */
+    /** @var mixed|null */
     protected $id;
     /** @var string */
     protected $username = '';
-    /** @var ?string */
+    /** @var string|null */
     protected $fullName;
     /** @var string */
     protected $email = '';
     /** @var bool */
     protected $enabled = true;
-    /** @var ?string */
+    /** @var string|null */
     protected $salt;
     /** @var string */
     protected $password;
-    /** @var ?string */
+    /** @var string|null */
     protected $plainPassword;
-    /** @var ?\DateTimeInterface */
+    /** @var \DateTimeInterface|null */
     protected $lastLogin;
     /** @var string[] */
     protected $roleList = [];
