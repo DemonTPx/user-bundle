@@ -21,7 +21,7 @@ services:
             - '@demontpx_user.entity_manager'
             - '@Demontpx\UserBundle\Repository\UserRepository'
             - '@Demontpx\UserBundle\Service\PasswordUpdater'
-            - '@Symfony\Component\EventDispatcher\EventDispatcherInterface'
+            - '@Symfony\Contracts\EventDispatcher\EventDispatcherInterface'
         public: true
 
     Demontpx\UserBundle\Repository\UserRepository:

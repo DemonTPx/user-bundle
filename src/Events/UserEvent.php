@@ -3,7 +3,7 @@
 namespace Demontpx\UserBundle\Events;
 
 use Demontpx\UserBundle\Model\UserInterface;
-use Symfony\Component\EventDispatcher\Event;
+use Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * @copyright 2018 Bert Hekman

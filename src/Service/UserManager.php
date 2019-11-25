@@ -9,7 +9,7 @@ use Demontpx\UserBundle\Exception\UserNotFoundException;
 use Demontpx\UserBundle\Model\UserInterface;
 use Demontpx\UserBundle\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 /**
  * @copyright 2018 Bert Hekman
@@ -120,7 +120,7 @@ class UserManager implements UserManagerInterface
     private function dispatchEvent(string $eventName, UserInterface $user, ?int $id = null, ?string $username = null): UserEvent
     {
         $event = new UserEvent($user, $id ?? $user->getId(), $username ?? $user->getUsername());
-        $this->eventDispatcher->dispatch($eventName, $event);
+        $this->eventDispatcher->dispatch($event, $eventName);
 
         return $event;
     }

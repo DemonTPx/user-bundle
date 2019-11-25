@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a08dc789cf1045dded21061bc599ba17",
+    "content-hash": "b8a86b36c5176b0f2733f656eed790fb",
     "packages": [
         {
             "name": "demontpx/util-bundle",
-            "version": "0.5",
+            "version": "0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DemonTPx/util-bundle.git",
-                "reference": "c382a3742a743cdc5f4f3f32ea4e11ca95d92d7b"
+                "reference": "797d214a76d05d64bc1b4a89fea7395bcf3817ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DemonTPx/util-bundle/zipball/c382a3742a743cdc5f4f3f32ea4e11ca95d92d7b",
-                "reference": "c382a3742a743cdc5f4f3f32ea4e11ca95d92d7b",
+                "url": "https://api.github.com/repos/DemonTPx/util-bundle/zipball/797d214a76d05d64bc1b4a89fea7395bcf3817ea",
+                "reference": "797d214a76d05d64bc1b4a89fea7395bcf3817ea",
                 "shasum": ""
             },
             "require": {
@@ -26,6 +26,9 @@
                 "php": "^7.1",
                 "symfony/form": "^4.2|^5.0",
                 "symfony/framework-bundle": "^4.2|^5.0"
+            },
+            "conflict": {
+                "phpunit/phpunit": "<8.0"
             },
             "require-dev": {
                 "cocur/slugify": "^3.1",
@@ -49,7 +52,7 @@
             "keywords": [
                 "utility"
             ],
-            "time": "2019-11-25T17:42:52+00:00"
+            "time": "2019-11-25T18:24:29+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -5131,7 +5134,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1"
+        "php": "^7.1",
+        "ext-json": "*"
     },
     "platform-dev": []
 }
