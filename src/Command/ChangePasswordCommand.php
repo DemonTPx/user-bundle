@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Demontpx\UserBundle\Command;
 
@@ -30,6 +30,8 @@ class ChangePasswordCommand extends AbstractUserCommand
         $this->userManager->updateUser($user);
 
         $output->writeln(sprintf('Password changed for user "%s"', $username));
+
+        return 0;
     }
 
     protected function interact(InputInterface $input, OutputInterface $output)

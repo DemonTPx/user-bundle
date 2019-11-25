@@ -1,7 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Demontpx\UserBundle\Entity;
 
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -20,7 +21,7 @@ class UserTraitTest extends TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|User
+     * @return MockObject|User
      */
     private function createUserMock()
     {

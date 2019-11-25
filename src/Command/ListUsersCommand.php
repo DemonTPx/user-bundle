@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Demontpx\UserBundle\Command;
 
@@ -64,5 +64,7 @@ class ListUsersCommand extends AbstractUserCommand
         }
 
         $table->render();
+
+        return 0;
     }
 }

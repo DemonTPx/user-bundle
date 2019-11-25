@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Demontpx\UserBundle\Command;
 
@@ -27,6 +27,8 @@ class DeleteUserCommand extends AbstractUserCommand
         $this->userManager->deleteUser($user);
 
         $output->writeln(sprintf('User "%s" deleted', $username));
+
+        return 0;
     }
 
     protected function interact(InputInterface $input, OutputInterface $output)

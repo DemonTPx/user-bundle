@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Demontpx\UserBundle\Command;
 
@@ -30,6 +30,8 @@ class PromoteUserCommand extends AbstractUserCommand
         $this->userManager->updateUser($user);
 
         $output->writeln(sprintf('Role "%s" has been added to user "%s"', $role, $username));
+
+        return 0;
     }
 
     protected function interact(InputInterface $input, OutputInterface $output)

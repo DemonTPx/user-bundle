@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Demontpx\UserBundle\DependencyInjection;
 
@@ -12,11 +12,10 @@ class DemontpxUserExtensionTest extends TestCase
 {
     /** @var DemontpxUserExtension */
     private $extension;
-
     /** @var string */
     private $root;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

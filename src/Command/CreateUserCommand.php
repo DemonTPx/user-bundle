@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Demontpx\UserBundle\Command;
 
@@ -40,6 +40,8 @@ class CreateUserCommand extends AbstractUserCommand
         $this->userManager->updateUser($user);
 
         $output->writeln(sprintf('User "%s" created', $user->getUsername()));
+
+        return 0;
     }
 
     protected function interact(InputInterface $input, OutputInterface $output)
