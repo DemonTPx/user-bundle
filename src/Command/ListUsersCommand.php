@@ -27,14 +27,10 @@ class ListUsersCommand extends AbstractUserCommand
         $userList = $this->userManager->findUserList();
 
         if ($enabledOnly) {
-            $userList = array_filter($userList, function (UserInterface $user) {
-                return $user->isEnabled();
-            });
+            $userList = array_filter($userList, fn (UserInterface $user) => $user->isEnabled());
         }
 
-        usort($userList, function (UserInterface $left, UserInterface $right) {
-            return $left->getUsername() <=> $right->getUsername();
-        });
+        usort($userList, fn (UserInterface $left, UserInterface $right) => $left->getUsername() <=> $right->getUsername());
 
         $table = new Table($output);
 
