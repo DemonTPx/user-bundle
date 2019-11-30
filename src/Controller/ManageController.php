@@ -16,10 +16,8 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class ManageController extends BaseController
 {
-    /** @var UserRepository */
-    private $repository;
-    /** @var UserManagerInterface */
-    private $manager;
+    private UserRepository $repository;
+    private UserManagerInterface $manager;
 
     public function __construct(UserRepository $repository, UserManagerInterface $manager)
     {

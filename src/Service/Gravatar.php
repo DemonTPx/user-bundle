@@ -20,14 +20,10 @@ class Gravatar
     const DEFAULT_RETRO = 'retro';
     const DEFAULT_BLANK = 'blank';
 
-    /** @var int */
-    private $defaultSize;
-    /** @var string */
-    private $defaultRating;
-    /** @var string */
-    private $defaultDefault;
-    /** @var bool */
-    private $defaultForceDefault;
+    private int $defaultSize;
+    private string $defaultRating;
+    private string $defaultDefault;
+    private bool $defaultForceDefault;
 
     public function __construct(
         int $defaultSize = 80,

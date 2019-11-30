@@ -9,24 +9,16 @@ abstract class AbstractUser implements UserInterface, \Serializable
 {
     /** @var mixed|null */
     protected $id;
-    /** @var string */
-    protected $username = '';
-    /** @var string|null */
-    protected $fullName;
-    /** @var string */
-    protected $email = '';
-    /** @var bool */
-    protected $enabled = true;
-    /** @var string|null */
-    protected $salt;
-    /** @var string */
-    protected $password;
-    /** @var string|null */
-    protected $plainPassword;
-    /** @var \DateTimeInterface|null */
-    protected $lastLogin;
+    protected string $username = '';
+    protected ?string $fullName = null;
+    protected string $email = '';
+    protected bool $enabled = true;
+    protected ?string $salt = null;
+    protected string $password = '';
+    protected ?string $plainPassword = null;
+    protected ?\DateTimeInterface $lastLogin;
     /** @var string[] */
-    protected $roleList = [];
+    protected array $roleList = [];
 
     public function serialize()
     {
@@ -45,7 +37,7 @@ abstract class AbstractUser implements UserInterface, \Serializable
     {
         $data = unserialize($serialized);
 
-        list(
+        [
             $this->id,
             $this->username,
             $this->fullName,
@@ -53,7 +45,7 @@ abstract class AbstractUser implements UserInterface, \Serializable
             $this->enabled,
             $this->salt,
             $this->password
-        ) = $data;
+        ] = $data;
     }
 
     public function __toString()

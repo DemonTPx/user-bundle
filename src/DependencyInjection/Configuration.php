@@ -15,14 +15,8 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder('demontpx_user');
-
-        // For BC with symfony/config < 4.2
-        if (method_exists($treeBuilder, 'getRootNode')) {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->getRootNode();
-        } else {
-            $rootNode = $treeBuilder->root('demontpx_user');
-        }
+        /** @var ArrayNodeDefinition $rootNode */
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()

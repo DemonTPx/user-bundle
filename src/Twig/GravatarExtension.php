@@ -13,8 +13,7 @@ use Twig\TwigFunction;
  */
 class GravatarExtension extends AbstractExtension
 {
-    /** @var Gravatar */
-    private $gravatar;
+    private Gravatar $gravatar;
 
     public function __construct(Gravatar $gravatar)
     {

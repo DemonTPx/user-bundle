@@ -16,8 +16,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class UserType extends AbstractType
 {
-    /** @var array */
-    private $roleList;
+    private array $roleList;
 
     public function __construct(array $roleList)
     {

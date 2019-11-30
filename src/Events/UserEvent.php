@@ -10,12 +10,9 @@ use Symfony\Contracts\EventDispatcher\Event;
  */
 class UserEvent extends Event
 {
-    /** @var UserInterface */
-    private $user;
-    /** @var int */
-    private $id;
-    /** @var string */
-    private $username;
+    private UserInterface $user;
+    private int $id;
+    private string $username;
 
     public function __construct(UserInterface $user, int $id, string $username)
     {

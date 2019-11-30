@@ -10,11 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
 trait UserTrait
 {
     /**
-     * @var User
-     *
      * @ORM\ManyToOne(targetEntity="Demontpx\UserBundle\Entity\User")
      */
-    private $user;
+    private User $user;
 
     public function getUser(): User
     {

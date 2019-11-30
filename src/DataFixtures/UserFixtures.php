@@ -12,12 +12,9 @@ use Doctrine\Common\Persistence\ObjectManager;
  */
 class UserFixtures extends Fixture
 {
-    /** @var UserManagerInterface */
-    private $userManager;
-    /** @var array */
-    private $userList;
-    /** @var ObjectManager */
-    private $manager;
+    private UserManagerInterface $userManager;
+    private array $userList;
+    private ObjectManager $manager;
 
     public function __construct(UserManagerInterface $userManager, array $userList)
     {

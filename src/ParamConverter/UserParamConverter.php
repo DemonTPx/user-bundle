@@ -15,8 +15,7 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
  */
 class UserParamConverter implements ParamConverterInterface
 {
-    /** @var UserProviderInterface */
-    private $userProvider;
+    private UserProviderInterface $userProvider;
 
     public function __construct(UserProviderInterface $userProvider)
     {

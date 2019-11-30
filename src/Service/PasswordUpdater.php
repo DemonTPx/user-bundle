@@ -12,8 +12,7 @@ use Symfony\Component\Security\Core\Encoder\SelfSaltingEncoderInterface;
  */
 class PasswordUpdater implements PasswordUpdaterInterface
 {
-    /** @var EncoderFactoryInterface */
-    private $encoderFactory;
+    private EncoderFactoryInterface $encoderFactory;
 
     public function __construct(EncoderFactoryInterface $encoderFactory)
     {

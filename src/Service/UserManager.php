@@ -16,14 +16,10 @@ use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
  */
 class UserManager implements UserManagerInterface
 {
-    /** @var EntityManagerInterface */
-    private $objectManager;
-    /** @var UserRepository */
-    private $repository;
-    /** @var PasswordUpdaterInterface */
-    private $passwordUpdater;
-    /** @var EventDispatcherInterface */
-    private $eventDispatcher;
+    private EntityManagerInterface $objectManager;
+    private UserRepository $repository;
+    private PasswordUpdaterInterface $passwordUpdater;
+    private EventDispatcherInterface $eventDispatcher;
 
     public function __construct(
         EntityManagerInterface $entityManager,

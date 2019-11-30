@@ -10,10 +10,8 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
  */
 class DemontpxUserExtensionTest extends TestCase
 {
-    /** @var DemontpxUserExtension */
-    private $extension;
-    /** @var string */
-    private $root;
+    private DemontpxUserExtension $extension;
+    private string $root;
 
     public function setUp(): void
     {
