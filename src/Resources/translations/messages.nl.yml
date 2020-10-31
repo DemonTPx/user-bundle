@@ -1,6 +1,9 @@
 demontpx_user:
   users: Gebruikers
 
+  logout: Uitloggen
+  logout_user: Uitloggen (%user%)
+
   new: Nieuwe gebruiker
   edit: Gebruiker aanpassen
   delete: Gebruiker verwijderen
